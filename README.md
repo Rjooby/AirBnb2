@@ -1,28 +1,49 @@
-== README
+#Air BnB Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* User authentication
 
-Things you may want to cover:
+* Models: User, Booking Request, Location, Session
 
-* Ruby version
+* CRUD of Models
 
-* System dependencies
+* Index Show and Create Views for Locations
 
-* Configuration
+* Search form and filter results
 
-* Database creation
+* Create and Destroy User
 
-* Database initialization
+* Map and Search API
 
-* How to run the test suite
+======
 
-* Services (job queues, cache servers, search engines, etc.)
+* User review and comments
 
 * Deployment instructions
 
 * ...
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+## User
+
++ username
++ password
++ session
+
+## Location
+
++ name
++ coordinates
++ Price
++ Type (Cabin, DriveIn, Wilderness)
++ Description
+
+## Request
+
++ Date range
++ location_id
++ user_id
++ booking_status
+
+## Session
+
++ session_token
