@@ -1,35 +1,28 @@
 #Air BnB Clone
 
 * User authentication
-
 * Models: User, Booking Request, Location, Session
-
 * CRUD of Models
-
 * Index Show and Create Views for Locations
-
 * Search form and filter results
-
 * Create and Destroy User
-
 * Map and Search API
 
-======
+======MVP
 
 * User review and comments
-
 * Deployment instructions
-
 * ...
 
+## Models
 
-## User
+# User
 
 + username
 + password
 + session
 
-## Location
+# Location
 
 + name
 + coordinates
@@ -37,7 +30,7 @@
 + Type (Cabin, DriveIn, Wilderness)
 + Description
 
-## Request
+# Request
 
 + Date range
 + location_id
