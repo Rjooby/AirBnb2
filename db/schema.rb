@@ -11,10 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107152346) do
+ActiveRecord::Schema.define(version: 20150107164014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "locations", force: true do |t|
+    t.string   "type",          null: false
+    t.integer  "owner_id",      null: false
+    t.integer  "price",         null: false
+    t.text     "description",   null: false
+    t.string   "coordinates",   null: false
+    t.integer  "max_occupancy", null: false
+    t.boolean  "water",         null: false
+    t.boolean  "bathroom",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "locations", ["owner_id"], name: "index_locations_on_owner_id", using: :btree
+
+  create_table "requests", force: true do |t|
+    t.integer  "location_id",                      null: false
+    t.integer  "requester_id",                     null: false
+    t.integer  "guests_num",                       null: false
+    t.string   "status",       default: "pending", null: false
+    t.date     "start_date",                       null: false
+    t.date     "end_date",                         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "requests", ["location_id"], name: "index_requests_on_location_id", using: :btree
+  add_index "requests", ["requester_id"], name: "index_requests_on_requester_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
