@@ -1,0 +1,9 @@
+<h2> Available Location </h2>
+
+<ul>
+  <% @locations.each do |location| %>
+    <li><a href="<%=location_url(location)%>"><%=location.name%></a></li>
+  <% end %>
+</ul>
+
+<a href="<%= new_location_url%>"> Add a new destination </a>

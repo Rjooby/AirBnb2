@@ -1,0 +1,29 @@
+<h2> <%= @location.name %> </h2>
+
+<p>
+  <%= @location.description %>
+</p>
+
+<p>
+  Type: <%= @location.camptype == "drive" ? "Drive-in" : "Wilderness" %>
+</p>
+
+<p>
+  Max Occupancy: <%= @location.max_occupancy %>
+</p>
+
+<p>
+  Price: <%= @location.price %>
+</p>
+
+<p>
+  Address: <%= @location.coordinates %>
+</p>
+
+<p>
+  Water?: <%= @location.water ? "yes" : "no" %>
+</p>
+
+<p>
+  Bathroom?: <%= @location.bathroom ? "yes" : "no" %>
+</p>

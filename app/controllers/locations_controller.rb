@@ -1,4 +1,5 @@
 class LocationsController < ApplicationController
+  before_action :require_signed_in!, only: [:create, :edit, :update, :destroy]
 
   def index
     @locations = Location.all
@@ -8,9 +9,15 @@ class LocationsController < ApplicationController
     @location = Location.new
   end
 
+  def show
+    @location = Location.find(params[:id])
+  end
+
   def create
     @location = Location.new(location_params)
     @location.owner_id = current_user.id
+    # @location.water = (params[:water] == "1" ? true : false )
+    # @location.bathroom = (params[:bathroom] == "1" ? true : false)
     if @location.save
       redirect_to location_url(@location)
     else
@@ -25,10 +32,12 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
+    @location.water = (params[:water] == "1" ? true : false )
+    @location.bathroom = (params[:bathroom] == "1" ? true : false)
     if @location.update(location_params)
       redirect_to location_url(@location)
     else
-      flash.now[:errors] = @location.erorrs.full_messages
+      flash.now[:errors] = @location.errors.full_messages
       render :edit
     end
   end
@@ -41,6 +50,6 @@ class LocationsController < ApplicationController
 
   private
   def location_params
-    params.require(:location).permit(:type, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)
+    params.require(:location).permit(:name, :camptype, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)
   end
 end

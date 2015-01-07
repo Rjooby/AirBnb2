@@ -1,4 +1,9 @@
 class SessionsController < ApplicationController
+    before_action :require_not_signed_in!, only: [:new, :create]
+
+  def new
+
+  end
 
   def create
     user = User.find_by_credentials(
@@ -7,7 +12,7 @@ class SessionsController < ApplicationController
     )
     if user
       sign_in(user)
-      render text:"signed in"
+      redirect_to locations_url
     else
       flash.now[:errors] = ["Invalid username or password"]
       render :new
@@ -16,6 +21,6 @@ class SessionsController < ApplicationController
 
   def destroy
     sign_out
-    render text:"signed out"
+    redirect_to locations_url
   end
 end

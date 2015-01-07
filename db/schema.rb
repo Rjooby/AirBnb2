@@ -17,14 +17,15 @@ ActiveRecord::Schema.define(version: 20150107164014) do
   enable_extension "plpgsql"
 
   create_table "locations", force: true do |t|
-    t.string   "type",          null: false
+    t.string   "name",          null: false
+    t.string   "camptype",      null: false
     t.integer  "owner_id",      null: false
     t.integer  "price",         null: false
     t.text     "description",   null: false
     t.string   "coordinates",   null: false
     t.integer  "max_occupancy", null: false
-    t.boolean  "water",         null: false
-    t.boolean  "bathroom",      null: false
+    t.boolean  "water"
+    t.boolean  "bathroom"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
