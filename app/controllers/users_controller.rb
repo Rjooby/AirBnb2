@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_not_signed_in!
+  before_action :require_not_signed_in!, only: [:new, :create]
 
   def new
     @user = User.new
@@ -15,6 +15,12 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = current_user
+    @locations = current_user.locations
+    render :show
   end
 
   private

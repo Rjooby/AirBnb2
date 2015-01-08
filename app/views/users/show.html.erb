@@ -1,0 +1,15 @@
+
+<h3> Your posted locations </h3>
+
+<ul>
+  <% @locations.each do |location| %>
+
+    <li> <%= location.name %> <a href="<%= location_requests_url(location) %>">Requests</a> </li>
+
+  <% end %>
+
+  <br>
+  
+  <a href="<%= locations_url %>"> Back to Listing </a>
+
+</ul>

@@ -20,6 +20,7 @@ class Request < ActiveRecord::Base
       self.status = "APPROVED"
       self.save!
       overlapping_pending_requests.update_all(status: 'DENIED')
+    end
   end
 
   def deny!
