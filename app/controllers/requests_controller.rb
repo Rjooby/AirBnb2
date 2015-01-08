@@ -1,6 +1,11 @@
 class RequestsController < ApplicationController
   before_action :require_signed_in!
 
+  def index
+    @location = Location.find(params[:location_id])
+    @requests = @location.requests
+  end
+
   def new
     @request = Request.new
   end

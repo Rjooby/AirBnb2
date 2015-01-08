@@ -1,0 +1,26 @@
+<h2> Requests for <%= @location.name %> </h2>
+
+<table>
+  <tr>
+    <th> Username </th>
+    <th> Check-in date </th>
+    <th> Check-out date </th>
+    <th> Status </th>
+  </tr>
+  <% @requests.each do |request| %>
+  <tr>
+    <td><%=User.find(request.requester_id).username %> </td>
+    <td><%=request.start_date%></td>
+    <td><%=request.end_date%></td>
+    <td>
+      <% if request.pending? %>
+        <%= button_to "Approve", approve_request_url(request) %>
+        <%= button_to "Deny", deny_request_url(request) %>
+      <% else %>
+        <%= request.status %>
+      <% end %>
+    </td>
+  </tr>
+
+    <% end %>
+</table>

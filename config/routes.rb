@@ -2,13 +2,13 @@ Rails.application.routes.draw do
   root to: "sessions#new"
   resources :users, only: [:show, :new, :create]
 
-  resources :requests, only: [:index] do
+  resources :requests, only: [] do
     post "approve", on: :member
     post "deny", on: :member
   end
 
   resources :locations do
-    resources :requests, only: [:create, :new]
+    resources :requests, only: [:create, :new, :index]
   end
 
   resource :session, only: [:new, :create, :destroy]
