@@ -3,6 +3,7 @@ class Request < ActiveRecord::Base
 
   validates :guests_num, :status, :start_date, :end_date, presence: true
   validates :status, inclusion: STATUS_STATES
+  validate :start_before_end
 
   belongs_to :user,
     class_name: "User",
@@ -35,14 +36,20 @@ class Request < ActiveRecord::Base
   def overlapping_requests
     Request
       .where("(:id IS NULL) OR (id != :id)", id: self.id)
-      .where(cat_id: cat_id)
+      .where(location_id: location_id)
       .where(<<-SQL, start_date: start_date, end_date: end_date)
       NOT( (start_date > :end_date) OR (end_date < :start_date) )
 SQL
   end
 
   def overlapping_pending_requests
-    overlapping_request.where("status = 'PENDING'")
+    overlapping_requests.where("status = 'PENDING'")
+  end
+
+  def start_before_end
+    return if start_date < end_date
+    errors[:start_date] << "must come before end date"
+    errors[:end_date] << "must come after start date"
   end
 
 end

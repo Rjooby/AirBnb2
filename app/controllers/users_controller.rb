@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @locations = current_user.locations
+    @user = User.find(params[:id])
+    @locations = @user.locations
     render :show
   end
 

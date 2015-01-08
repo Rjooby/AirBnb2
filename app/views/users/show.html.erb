@@ -4,12 +4,37 @@
 <ul>
   <% @locations.each do |location| %>
 
-    <li> <%= location.name %> <a href="<%= location_requests_url(location) %>">Requests</a> </li>
+    <li> <%= location.name %>
+      <% if current_user.id == location.owner_id %>
+        <a href="<%= location_requests_url(location) %>">Requests</a>
+        <%= button_to "Remove", location_url, method: :delete %>
+      <% end %>
+    </li>
 
   <% end %>
 
-  <br>
-  
-  <a href="<%= locations_url %>"> Back to Listing </a>
 
 </ul>
+
+<h3> Your requests </h3>
+
+<table>
+  <tr>
+    <th> Location </th>
+    <th> Check-in date </th>
+    <th> Check-out date </th>
+    <th> Status </th>
+  </tr>
+  <% (@user.booking_requests).each do |request| %>
+  <tr>
+    <td><%=Location.find(request.location_id).name %> </td>
+    <td><%=request.start_date%></td>
+    <td><%=request.end_date%></td>
+    <td><%=request.status %></td>
+  </tr>
+
+  <% end %>
+</table>
+
+<br>
+<a href="<%= locations_url %>"> Back to Listing </a>

@@ -3,16 +3,25 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true}
 
   has_many :booking_requests,
-    class_name: "User",
+    dependent: :destroy,
+    class_name: "Request",
     foreign_key: :requester_id,
     primary_key: :id
 
   has_many :locations,
+    dependent: :destroy,
     class_name: "Location",
     foreign_key: :owner_id,
     primary_key: :id
 
+  has_many :posted_reviews,
+    dependent: :destroy,
+    class_name: "Review",
+    foreign_key: :reviewer_id,
+    primary_key: :id
+
   has_many :rental_requests,
+    dependent: :destroy,
     through: :locations,
     source: :requests
 

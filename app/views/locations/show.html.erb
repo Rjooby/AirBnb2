@@ -28,6 +28,10 @@
   Bathroom?: <%= @location.bathroom ? "yes" : "no" %>
 </p>
 
+
+<h3> Interested? Request a booking </h3>
+<%= render "layouts/errors" %>
+
 <form action="<%= location_requests_url(@location) %>" method="post">
   <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
@@ -35,9 +39,13 @@
   <input type="number" name="request[guests_num]" value="">
   </label>
 
+  <br>
+
   <label> Start Date
     <input type="date" name="request[start_date]" value="">
   </label>
+
+  <br>
 
   <label> Checkout Date
     <input type="date" name="request[end_date]" value="">
@@ -46,3 +54,35 @@
   <input type="submit">
 
 </form>
+
+<br>
+
+<h3> Reviews </h3>
+
+<ul>
+<% @location.reviews.each do |review| %>
+  <li><%=review.body %> post by
+    <strong><%= User.find(review.reviewer_id).username %></strong>
+    <i><%= review.created_at %></i>
+    <% unless current_user.nil? %>
+      <% if current_user.id == review.reviewer_id %>
+      <%= button_to "Delete", review_url, method: :delete %>
+      <% end %>
+    <% end %>
+  </li>
+<% end %>
+</ul>
+
+<h3> Leave a Review </h3>
+
+<form action="<%= location_reviews_url(@location) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+    <textarea name="review[body]"></textarea>
+
+    <input type="submit">
+
+</form>
+
+<br>
+<a href="<%= locations_url %>"> Back to Listing </a>

@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
   <% if signed_in? %>
   <%= current_user.username %>
   <%= link_to "User Page", user_url(current_user) %>

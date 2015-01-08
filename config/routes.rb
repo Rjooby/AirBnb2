@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   resources :locations do
     resources :requests, only: [:create, :new, :index]
+    resources :reviews, only: [:create]
   end
 
+  resources :reviews, only: [:destroy]
   resource :session, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,6 +1,7 @@
 class RequestsController < ApplicationController
   before_action :require_signed_in!
 
+
   def index
     @location = Location.find(params[:location_id])
     @requests = @location.requests
@@ -17,17 +18,17 @@ class RequestsController < ApplicationController
 
     request.save
     flash[:errors] = request.errors.full_messages
-    redirect_to location_url(location)
+    redirect_to user_url(current_user)
   end
 
   def approve
     current_rental_request.approve!
-    redirect_to user_requests_url
+    redirect_to location_requests_url(current_rental_request.location_id)
   end
 
   def deny
     current_rental_request.deny!
-    redirect_to user_requests_url
+    redirect_to location_requests_url(current_rental_request.location_id)
   end
 
   private
