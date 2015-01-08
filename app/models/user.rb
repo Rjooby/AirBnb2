@@ -2,6 +2,19 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, presence: true
   validates :password, length: { minimum: 6, allow_nil: true}
 
+  has_many :booking_requests,
+    class_name: "User",
+    foreign_key: :requester_id,
+    primary_key: :id
+
+  has_many :locations,
+    class_name: "Location",
+    foreign_key: :owner_id,
+    primary_key: :id
+
+  has_many :rental_requests,
+    through: :locations,
+    source: :requests
 
   attr_reader :password
   after_initialize :ensure_session_token

@@ -1,9 +1,16 @@
 Rails.application.routes.draw do
   root to: "sessions#new"
-  resources :users, only: [:new, :create]
-  resources :locations do
-    resources :requests
+  resources :users, only: [:new, :create] do
+    
+  resources :requests, only: [:index] do
+    post "approve", on: :member
+    post "deny", on: :member
   end
+
+  resources :locations do
+    resources :requests, only: [:create, :new]
+  end
+
   resource :session, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
