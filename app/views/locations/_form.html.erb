@@ -6,7 +6,7 @@
 
 <form id="form_id" action="<%= action %>" method="post">
   <input type="hidden" name="_method" value="<%= method %>">
-  <input type="hidden" name="authenticity_token" value="form_authenticity_token">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
 
   <label for="location_name"> Name <br>
   <input type="text" name="location[name]" value="<%= location.name %>">

@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20150107164014) do
     t.integer  "location_id",                      null: false
     t.integer  "requester_id",                     null: false
     t.integer  "guests_num",                       null: false
-    t.string   "status",       default: "pending", null: false
+    t.string   "status",       default: "PENDING", null: false
     t.date     "start_date",                       null: false
     t.date     "end_date",                         null: false
     t.datetime "created_at"

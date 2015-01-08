@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
 
   def create
     location = Location.find(params[:location_id])
-    request = location.comments.new(comment_params)
+    request = location.requests.new(request_params)
     request.requester_id = current_user.id
 
     request.save
@@ -13,7 +13,7 @@ class RequestsController < ApplicationController
   def destroy
     request = Request.find(params[:id])
     request.destroy
-    redirect_to link_url(comment.link_id)
+    redirect_to link_url(request.link_id)
   end
 
   private

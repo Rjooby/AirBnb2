@@ -27,3 +27,22 @@
 <p>
   Bathroom?: <%= @location.bathroom ? "yes" : "no" %>
 </p>
+
+<form action="<%= location_requests_url(@location) %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+
+  <label>Number of Campers
+  <input type="number" name="request[guests_num]" value="">
+  </label>
+
+  <label> Start Date
+    <input type="date" name="request[start_date]" value="">
+  </label>
+
+  <label> Checkout Date
+    <input type="date" name="request[end_date]" value="">
+  </label>
+
+  <input type="submit">
+
+</form>

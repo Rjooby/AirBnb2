@@ -4,7 +4,7 @@ class CreateRequests < ActiveRecord::Migration
       t.integer :location_id, null: false
       t.integer :requester_id, null: false
       t.integer :guests_num, null: false
-      t.string :status, null: false, default: "pending"
+      t.string :status, null: false, default: "PENDING"
       t.date :start_date, null: false
       t.date :end_date, null: false
 

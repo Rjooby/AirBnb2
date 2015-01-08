@@ -1,4 +1,6 @@
 class Request < ActiveRecord::Base
+  STATUS_STATES = %w(APPROVED DENIED PENDING)
+
   validates :guests_num, :status, :start_date, :end_date, presence: true
   belongs_to :user,
     class_name: "User",
