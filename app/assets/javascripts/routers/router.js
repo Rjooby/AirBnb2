@@ -4,11 +4,11 @@ Air.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
   },
 
-
   routes: {
     "" : "locationsIndex",
     "locations/new" : "newLocation",
-    "locations/:id" : "showLocation"
+    "locations/:id" : "showLocation",
+    "users/:id" : "showUser"
   },
 
   locationsIndex: function () {
@@ -24,10 +24,14 @@ Air.Routers.Router = Backbone.Router.extend({
 
   showLocation: function (id) {
     var location = Air.locations.getOrFetch(id);
-    console.log(location);
     var view = new Air.Views.LocationShow({ model : location});
     this._swapView(view);
+  },
 
+  showUser: function (id) {
+    var user = Air.users.getOrFetch(id);
+    var view = new Air.Views.UserShow({ model : user });
+    this._swapView(view);
   },
 
   _swapView: function (view) {

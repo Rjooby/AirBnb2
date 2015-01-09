@@ -1,0 +1,15 @@
+
+<h3> Your posted locations </h3>
+
+<ul>
+  <% user.locations().each(function (location){  %>
+
+    <li><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a> </li>
+
+  <% }); %>
+
+
+</ul>
+
+<br>
+<a href=""> Back to Listing </a>

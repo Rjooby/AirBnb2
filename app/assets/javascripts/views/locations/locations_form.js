@@ -16,6 +16,7 @@ Air.Views.LocationForm = Backbone.View.extend({
     event.preventDefault();
     var attrs = this.$el.serializeJSON();
     console.log(attrs);
+    console.log(this.model);
     var that = this;
 
     this.model.save(attrs, {

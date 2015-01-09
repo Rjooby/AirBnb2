@@ -18,12 +18,9 @@ class Api::LocationsController < Api::ApiController
   def create
     @location = Location.new(location_params)
     @location.owner_id = current_user.id
-    # @location.water = (params[:water] == "1" ? true : false )
-    # @location.bathroom = (params[:bathroom] == "1" ? true : false)
     if @location.save
       render json: @location
     else
-
       render json: @location.errors.full_messages, status: :unprocessable_entity
     end
   end

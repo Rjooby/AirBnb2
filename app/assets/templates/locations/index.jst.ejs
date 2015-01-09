@@ -6,13 +6,24 @@
 
   <section class="index-listings">
     <main class="index-listing-form">
+      <form class="form-listing-search">
+        <label for=""> Where?
+        <input type="text" name="some_name" value="">
+        </label>
+
+        <label>When?</label>
+        <input type="date" name="some_name" value="">
+        to
+        <input type="date" name="some_name" value="">
+        <input type="submit" name="some_name" value="Take me away">
+      </form>
 
     </main>
     <main class="index-listing-locations">
       <h4>Available locations</h4>
       <ul class="locations-list">
       <% locations.each(function (location) { %>
-        <li><%= location.escape("name") %></li>
+        <li><a href="#/locations/<%=location.escape("id")%>"><%= location.escape("name") %></a></li>
       <% }); %>
       </ul>
     </main>

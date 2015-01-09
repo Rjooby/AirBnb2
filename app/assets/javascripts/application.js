@@ -1,6 +1,6 @@
 //= require jquery
-//= require jquery-2.1.1.js
 //= require jquery.serializejson.min
+//= require jquery_ujs
 //= require underscore
 //= require backbone
 //= require air
