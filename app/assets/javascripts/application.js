@@ -1,7 +1,8 @@
-//= require underscore
-//= require backbone
+//= require jquery
 //= require jquery-2.1.1.js
 //= require jquery.serializejson.min
+//= require underscore
+//= require backbone
 //= require air
 //= require_tree ../templates
 //= require_tree ./models

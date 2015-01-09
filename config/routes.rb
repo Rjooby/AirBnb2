@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   resources :reviews, only: [:destroy]
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     resources :locations
   end
 

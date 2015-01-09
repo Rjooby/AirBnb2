@@ -12,6 +12,6 @@ window.Air = {
   }
 };
 
-// $(document).ready(function(){
-//   Air.initialize();
-// });
+$(document).ready(function(){
+  Air.initialize();
+});
