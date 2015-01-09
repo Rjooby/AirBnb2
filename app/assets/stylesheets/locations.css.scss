@@ -1,3 +1,36 @@
 // Place all the styles related to the locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-map {
+  float: left;
+  width: 40%;
+  min-height: 700px;
+
+}
+
+.index-listings {
+  float: left;
+  display: block;
+  width: 60%;
+  min-height: 700px;
+}
+
+.content {
+  padding: 40px;
+}
+
+.content {
+  position: relative;
+}
+
+.content:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 40%;
+  width: 1px;
+  background: #ccc;
+}

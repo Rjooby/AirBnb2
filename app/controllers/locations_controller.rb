@@ -15,11 +15,12 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
+    params[:authenticity_token] = form_authenticity_token
     @location.owner_id = current_user.id
     # @location.water = (params[:water] == "1" ? true : false )
     # @location.bathroom = (params[:bathroom] == "1" ? true : false)
     if @location.save
-      redirect_to location_url(@location)
+      redirect_to "#/locations/" + @location.id
     else
       flash.now[:errors] = @location.errors.full_messages
       render :new

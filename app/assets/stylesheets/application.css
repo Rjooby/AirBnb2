@@ -13,3 +13,63 @@
  *= require_tree .
  *= require_self
  */
+
+/*reset*/
+
+button, body, section, div, h1, h2, h3, a, p, ul, article, header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  text-align: inherit;
+  text-decoration: none;
+}
+
+
+ul {
+  list-style: none;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/*header*/
+
+body {
+  font-family: "Helvetica", sans-serif;
+  font-size: 16px;
+}
+
+.header {
+  background: #43FAE5
+}
+
+.header-nav {
+  width: 100%;
+  margin: auto;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.header-logo {
+  float: left;
+  font-weight: 900;
+}
+
+.header-navlist {
+  float: right;
+}
+
+.header-navlist li {
+  float: left;
+}
+
+.header-navlist a {
+  padding: 10px 20px;
+}

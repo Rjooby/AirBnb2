@@ -3,7 +3,7 @@ Air.Collections.Locations = Backbone.Collection.extend({
   model: Air.Models.Location,
 
   getOrFetch: function (id) {
-    var loc = Location.get(id);
+    var loc = Air.locations.get(id);
     var locs = Air.locations;
     if (!loc) {
       loc = new Air.Models.Location({ id : id });

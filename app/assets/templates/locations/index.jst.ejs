@@ -1,16 +1,20 @@
 
+<div class="content group">
+  <section class="index-map">
+    <h2> There should be a nice big map here </h2>
+  </section>
 
-<section class="index-map"><section>
-  <h4> There should be a nice big map here </h4>
-<section class="index-listings">
-  <main class="index-listing-form">
+  <section class="index-listings">
+    <main class="index-listing-form">
 
-  </main>
-  <main class="index-listing-locations">
-    <ul class="locations-list">
-    <% locations.each(function (location) { %>
-      <li><%= location.name %></li>
-    <% }); %>
-    </ul>
-  </main>
-</section>
+    </main>
+    <main class="index-listing-locations">
+      <h4>Available locations</h4>
+      <ul class="locations-list">
+      <% locations.each(function (location) { %>
+        <li><%= location.escape("name") %></li>
+      <% }); %>
+      </ul>
+    </main>
+  </section>
+</div>
