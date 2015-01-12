@@ -31,14 +31,12 @@ Air.Routers.Router = Backbone.Router.extend({
 
   showUser: function (id) {
     var user = Air.users.getOrFetch(id);
-    console.log(user);
     var view = new Air.Views.UserShow({ model : user });
     this._swapView(view);
   },
 
   requestsIndex: function (id) {
     var location = Air.locations.getOrFetch(id);
-    console.log(location.requests());
     var view = new Air.Views.RequestsIndex({ model : location });
     this._swapView(view);
   },

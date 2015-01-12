@@ -1,11 +1,14 @@
 Air.Views.LocationShow = Backbone.View.extend({
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render)
+    console.log(this.model.current());
+    this.listenTo(this.model, "sync", this.render),
+    this.listenTo(this.model.reviews(), "add remove", this.render)
   },
 
   events: {
-    "click .submit-request" : "requestLocation"
+    "click .submit-request" : "requestLocation",
+    "click .submit-review-form" : "addReview"
   },
 
   template: JST['locations/show'],
@@ -22,7 +25,6 @@ Air.Views.LocationShow = Backbone.View.extend({
     var attrs = this.$el.find("form.request").serializeJSON();
     var that = this;
 
-
     request.save(attrs.request, {
       success: function () {
         that.collection.add(request, { merge: true });
@@ -30,6 +32,19 @@ Air.Views.LocationShow = Backbone.View.extend({
       }
     });
 
+  },
+
+  addReview: function (event) {
+    event.preventDefault();
+    var review = new Air.Models.Review();
+    var attrs = this.$el.find("form.review").serializeJSON();
+    var that = this;
+
+    review.save(attrs.review, {
+      success: function () {
+        that.model.reviews().add(review, {merge: true});
+      }
+    });
   }
 
 });

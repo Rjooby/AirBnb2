@@ -7,20 +7,25 @@
     <th> Check-out date </th>
     <th> Status </th>
   </tr>
+
   <% location.requests().each( function (request) {  %>
-    <tr>
-      <td><%=Air.users.getOrFetch(request.get("requester_id")).escape("username") %> </td>
-      <td><%=request.escape("start_date")%></td>
-      <td><%=request.escape("end_date")%></td>
-      <td>
-        <% if (request.escape("status") === "PENDING"){  %>
-          <button class="approve">Approve</button>
-          <button class="deny">Deny</button>
-        <%} else {%>
-          <%= request.escape("status") %>
-        <% } %>
-      </td>
-    </tr>
+
+    <% if (location.escape("owner_id") == location.get("current").id){ %>
+      <tr>
+        <td> <%=Air.users.getOrFetch(request.get("requester_id")).escape("username") %>
+        </td>
+        <td><%=request.escape("start_date")%></td>
+        <td><%=request.escape("end_date")%></td>
+        <td>
+          <% if (request.escape("status") === "PENDING"){  %>
+            <button class="approve">Approve</button>
+            <button class="deny">Deny</button>
+          <% } else { %>
+            <%= request.escape("status") %>
+          <% } %>
+        </td>
+      </tr>
+    <% } %>
 
   <% }); %>
 </table>

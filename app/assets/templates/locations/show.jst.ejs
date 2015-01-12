@@ -1,4 +1,4 @@
-<h2> <%= location.escape("name") %> </h2>
+<h3> <%= location.escape("name") %> </h3>
 
 <p>
   <%= location.escape("description") %>
@@ -53,5 +53,28 @@
   <input type="submit" class="submit-request">
 </form>
 
-
 <br>
+<h3> Reviews </h3>
+<ul>
+  <% location.reviews().each(function(review){  %>
+  <li><%=review.escape("body") %> post by
+    <strong><%= Air.users.getOrFetch(review.reviewer_id).escape("username") %></strong>
+    <i><%= review.escape("created_at") %></i>
+    <% if (location.current().id === review.reviewer_id){ %>
+      <button class="delete-review">Delete</button>
+    <% } %>
+  </li>
+  <% }); %>
+</ul>
+<br>
+
+<h3> Leave a review </h3>
+
+<form class="review">
+  <textarea name="review[body]" rows="8" cols="40"></textarea>
+  <input type="hidden" name="review[location_id]" value="<%= location.id %>">
+  <input type="submit" class="submit-review-form">
+
+</form>
+
+<a href="#">Back to Listing</a>

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :locations
     resources :users, only: [:show, :index]
     resources :requests
+    resources :reviews
   end
 
 

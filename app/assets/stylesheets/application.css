@@ -16,7 +16,7 @@
 
 /*reset*/
 
-button, body, section, div, h1, h2, h3, a, p, ul, article, header {
+body, section, div, h1, h2, h3, a, p, ul, article, header {
   margin: 0;
   padding: 0;
   border: 0;
@@ -46,6 +46,12 @@ body {
   font-size: 16px;
 }
 
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
 .header {
   background: #43FAE5
 }
@@ -58,6 +64,7 @@ body {
 }
 
 .header-logo {
+  padding: 10px 20px;
   float: left;
   font-weight: 900;
 }
@@ -71,5 +78,10 @@ body {
 }
 
 .header-navlist a {
+  display: block;
   padding: 10px 20px;
+}
+
+#content {
+  padding: 40px;
 }
