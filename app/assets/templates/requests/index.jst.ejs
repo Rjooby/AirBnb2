@@ -9,7 +9,7 @@
   </tr>
   <% location.requests().each( function (request) {  %>
     <tr>
-      <td><%=User.getOrFetch(request.get("requester_id")).escape("username") %> </td>
+      <td><%=Air.users.getOrFetch(request.get("requester_id")).escape("username") %> </td>
       <td><%=request.escape("start_date")%></td>
       <td><%=request.escape("end_date")%></td>
       <td>
