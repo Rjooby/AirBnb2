@@ -1,14 +1,14 @@
 Air.Views.LocationShow = Backbone.View.extend({
 
   initialize: function () {
-    console.log(this.model.current());
     this.listenTo(this.model, "sync", this.render),
     this.listenTo(this.model.reviews(), "add remove", this.render)
   },
 
   events: {
     "click .submit-request" : "requestLocation",
-    "click .submit-review-form" : "addReview"
+    "click .submit-review-form" : "addReview",
+    "click .delete-review" : "deleteReview"
   },
 
   template: JST['locations/show'],
@@ -42,9 +42,20 @@ Air.Views.LocationShow = Backbone.View.extend({
 
     review.save(attrs.review, {
       success: function () {
+        Air.reviews.add(review, {merge: true});
         that.model.reviews().add(review, {merge: true});
       }
     });
+  },
+
+  deleteReview: function (event) {
+    event.preventDefault();
+    $target = $(event.currentTarget);
+    console.log($target);
+    var review = Air.reviews.get($target.attr("data-id"));
+    console.log($target.attr("data-id"));
+    console.log(review);
+    review.destroy();
   }
 
 });

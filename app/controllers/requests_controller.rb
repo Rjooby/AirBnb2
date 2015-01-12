@@ -31,6 +31,8 @@ class RequestsController < ApplicationController
     redirect_to location_requests_url(current_rental_request.location_id)
   end
 
+
+
   private
   def request_params
     params.require(:request).permit(:guests_num, :status, :start_date, :end_date)

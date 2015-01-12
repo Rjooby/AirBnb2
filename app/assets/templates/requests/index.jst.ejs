@@ -7,10 +7,9 @@
     <th> Check-out date </th>
     <th> Status </th>
   </tr>
-
   <% location.requests().each( function (request) {  %>
 
-    <% if (location.escape("owner_id") == location.get("current").id){ %>
+    <% if (location.escape("owner_id") == location.current().id){ %>
       <tr>
         <td> <%=Air.users.getOrFetch(request.get("requester_id")).escape("username") %>
         </td>
@@ -18,8 +17,8 @@
         <td><%=request.escape("end_date")%></td>
         <td>
           <% if (request.escape("status") === "PENDING"){  %>
-            <button class="approve">Approve</button>
-            <button class="deny">Deny</button>
+            <button class="approve"  data-id="<%=location.id%>">Approve</button>
+            <button class="deny" data-id="<%=location.id%>">Deny</button>
           <% } else { %>
             <%= request.escape("status") %>
           <% } %>

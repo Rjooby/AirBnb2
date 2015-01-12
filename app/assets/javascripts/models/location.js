@@ -21,7 +21,7 @@ Air.Models.Location = Backbone.Model.extend({
 
   current: function () {
     if (!this._current) {
-      this._current = new Air.Collections.Users();
+      this._current = new Air.Models.User();
     }
     return this._current;
   },

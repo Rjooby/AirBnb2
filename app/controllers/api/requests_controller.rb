@@ -20,6 +20,10 @@ class Api::RequestsController < Api::ApiController
     end
   end
 
+  def update
+    @request = Request.find(params[:id])
+  end
+
   private
 
   def request_params

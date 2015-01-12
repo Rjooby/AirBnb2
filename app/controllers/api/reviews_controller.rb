@@ -17,15 +17,15 @@ class Api::ReviewsController < Api::ApiController
   end
 
   def destroy
-    review = Review.find(params[:id])
-    review.destroy
-    redirect_to location_url(review.location_id)
+    @review = Review.find(params[:id])
+    @review.destroy if @review
+    render json: {}
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:body, :location_id)
+    params.require(:review).permit(:body, :location_id, :id)
   end
 
 end

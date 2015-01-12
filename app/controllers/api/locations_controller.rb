@@ -16,7 +16,7 @@ class Api::LocationsController < Api::ApiController
     if @location.save
       render json: @location
     else
-      render json: @location.full_messages, status: 422
+      render json: @location.errors.full_messages, status: 422
     end
   end
 

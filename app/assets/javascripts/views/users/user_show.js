@@ -7,7 +7,6 @@ Air.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.model.booking_requests());
     var content = this.template({ user : this.model });
     this.$el.html(content);
     return this;

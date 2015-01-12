@@ -37,7 +37,7 @@ Air.Routers.Router = Backbone.Router.extend({
 
   requestsIndex: function (id) {
     var location = Air.locations.getOrFetch(id);
-    var view = new Air.Views.RequestsIndex({ model : location });
+    var view = new Air.Views.RequestsIndex({ model : location, collection : Air.requests });
     this._swapView(view);
   },
 

@@ -3,6 +3,7 @@ json.extract! @location, :id, :name, :camptype, :owner_id, :price, :description,
 json.current current_user
 
 json.requests @location.requests do |request|
+  json.id request.id
   json.location_id request.location_id
   json.requester_id request.requester_id
   json.guests_num request.guests_num
@@ -14,6 +15,7 @@ json.requests @location.requests do |request|
 end
 
 json.reviews @location.reviews do |review|
+  json.id review.id
   json.body review.body
   json.reviewer_id review.reviewer_id
   json.location_id review.location_id

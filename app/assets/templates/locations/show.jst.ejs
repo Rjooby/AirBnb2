@@ -57,11 +57,10 @@
 <h3> Reviews </h3>
 <ul>
   <% location.reviews().each(function(review){  %>
-  <li><%=review.escape("body") %> post by
-    <strong><%= Air.users.getOrFetch(review.reviewer_id).escape("username") %></strong>
+  <li><%=review.escape("body") %>
     <i><%= review.escape("created_at") %></i>
-    <% if (location.current().id === review.reviewer_id){ %>
-      <button class="delete-review">Delete</button>
+    <% if (location.current().id == review.escape("reviewer_id")){ %>
+      <button class="delete-review" data-id="<%= review.id %>">Delete</button>
     <% } %>
   </li>
   <% }); %>

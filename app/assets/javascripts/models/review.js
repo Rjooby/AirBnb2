@@ -1,4 +1,4 @@
 Air.Models.Review = Backbone.Model.extend({
-  url: "/api/reviews"
+  urlRoot: "/api/reviews"
 
 });
