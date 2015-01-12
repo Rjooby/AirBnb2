@@ -1,0 +1,26 @@
+<h2> Requests for <%= location.escape("name") %> </h2>
+
+<table>
+  <tr>
+    <th> Username </th>
+    <th> Check-in date </th>
+    <th> Check-out date </th>
+    <th> Status </th>
+  </tr>
+  <% location.requests().each( function (request) {  %>
+    <tr>
+      <td><%=User.find(request.requester_id).escape("username") %> </td>
+      <td><%=request.escape("start_date")%></td>
+      <td><%=request.escape("end_date")%></td>
+      <td>
+        <% if (request.status === "PENDING"){  %>
+          <button class="approve">Approve</button>
+          <button class="deny">Deny</button>
+        <%} else {%>
+          <%= request.escape("status") %>
+        <% } %>
+      </td>
+    </tr>
+
+  <% }); %>
+</table>

@@ -7,9 +7,30 @@
     <li><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a> </li>
 
   <% }); %>
-
-
 </ul>
+
+<br>
+
+<h3> Your requests </h3>
+
+<table>
+  <tr>
+    <th> Location </th>
+    <th> Check-in date </th>
+    <th> Check-out date </th>
+    <th> Status </th>
+  </tr>
+  <% user.booking_requests().each(function (request){  %>
+  <tr>
+
+    <td><a href="#/locations/<%=request.get("location_id")%>"> <%=Air.locations.getOrFetch(request.get("location_id")).escape("name") %></a> </td>
+    <td><%=request.escape("start_date")%></td>
+    <td><%=request.escape("end_date")%></td>
+    <td><%=request.escape("status") %></td>
+  </tr>
+
+  <% }); %>
+</table>
 
 <br>
 <a href=""> Back to Listing </a>

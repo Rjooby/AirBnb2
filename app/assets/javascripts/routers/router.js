@@ -8,7 +8,8 @@ Air.Routers.Router = Backbone.Router.extend({
     "" : "locationsIndex",
     "locations/new" : "newLocation",
     "locations/:id" : "showLocation",
-    "users/:id" : "showUser"
+    "users/:id" : "showUser",
+    "locations/:id/requests" : "requestsIndex"
   },
 
   locationsIndex: function () {
@@ -24,13 +25,21 @@ Air.Routers.Router = Backbone.Router.extend({
 
   showLocation: function (id) {
     var location = Air.locations.getOrFetch(id);
-    var view = new Air.Views.LocationShow({ model : location});
+    var view = new Air.Views.LocationShow({ model : location, collection : Air.requests});
     this._swapView(view);
   },
 
   showUser: function (id) {
     var user = Air.users.getOrFetch(id);
+    console.log(user);
     var view = new Air.Views.UserShow({ model : user });
+    this._swapView(view);
+  },
+
+  requestsIndex: function (id) {
+    var location = Air.locations.getOrFetch(id);
+    console.log(location.requests());
+    var view = new Air.Views.RequestsIndex({ model : location });
     this._swapView(view);
   },
 

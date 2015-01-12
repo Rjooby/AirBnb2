@@ -5,16 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <% id = current_user.id %>
 </head>
 <body>
 
   <header class="header">
     <nav class="header-nav group">
 
-      <h2 class="header-logo"><a href="">SleepingBnT</a></h2>
+      <h2 class="header-logo"><a href="#">SleepingBnT</a></h2>
       <ul class="header-navlist">
       <% if signed_in? %>
-        <li><%= link_to current_user.username, user_url(current_user) %></li>
+        <li><a href="#/users/<%=id%>"><%=current_user.username%></a></li>
+
+
         <li>
           <form action="<%=session_url %>" method="post">
             <input type="hidden" name="_method" value="DELETE">

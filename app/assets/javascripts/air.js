@@ -8,6 +8,8 @@ window.Air = {
     Air.locations.fetch();
     Air.users = new Air.Collections.Users();
     Air.users.fetch();
+    Air.requests = new Air.Collections.Requests();
+    Air.requests.fetch();
     new Air.Routers.Router({ $rootEl : $('#content') });
     Backbone.history.start();
 

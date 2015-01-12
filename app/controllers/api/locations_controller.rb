@@ -5,14 +5,9 @@ class Api::LocationsController < Api::ApiController
     render json: @locations
   end
 
-  def new
-    @location = Location.new
-    render json: @location
-  end
-
   def show
     @location = Location.find(params[:id])
-    render json: @location
+    render :show
   end
 
   def create
@@ -21,29 +16,8 @@ class Api::LocationsController < Api::ApiController
     if @location.save
       render json: @location
     else
-      render json: @location.errors.full_messages, status: :unprocessable_entity
+      render json: @location.full_messages, status: 422
     end
-  end
-
-  def edit
-    @location = Location.find(params[:id])
-  end
-
-  def update
-    @location = Location.find(params[:id])
-    @location.water = (params[:water] == "1" ? true : false )
-    @location.bathroom = (params[:bathroom] == "1" ? true : false)
-    if @location.update(location_params)
-      render json: @location
-    else
-      render json: @location.errors.full_messages, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @location = Location.find(params[:id])
-    @location.destroy
-    render json: @location
   end
 
   private

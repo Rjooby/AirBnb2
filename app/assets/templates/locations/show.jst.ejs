@@ -5,25 +5,53 @@
 </p>
 
 <p>
-  Type: <%= location.camptype === "drive" ? "Drive-in" : "Wilderness" %>
+  Type: <%= location.escape("camptype") === "drive" ? "Drive-in" : "Wilderness" %>
 </p>
 
 <p>
-  Max Occupancy: <%= location.max_occupancy %>
+  Max Occupancy: <%= location.escape("max_occupancy") %>
 </p>
 
 <p>
-  Price: <%= location.price %>
+  Price: <%= location.escape("price") %>
 </p>
 
 <p>
-  Address: <%= location.coordinates %>
+  Address: <%= location.escape("coordinates") %>
 </p>
 
 <p>
-  Water?: <%= location.water ? "yes" : "no" %>
+  Water?: <%= location.escape("water") ? "yes" : "no" %>
 </p>
 
 <p>
-  Bathroom?: <%= location.bathroom ? "yes" : "no" %>
+  Bathroom?: <%= location.escape("bathroom") ? "yes" : "no" %>
 </p>
+
+<br>
+<form class="request">
+<h3> Interested? Request a booking </h3>
+
+  <label>Number of Campers
+  <input type="number" name="request[guests_num]" value="">
+  </label>
+
+  <br>
+
+  <label> Start Date
+    <input type="date" name="request[start_date]" value="">
+  </label>
+
+  <br>
+
+  <label> Checkout Date
+    <input type="date" name="request[end_date]" value="">
+  </label>
+
+  <input type="hidden" name="request[location_id]" value="<%=location.id%>">
+
+  <input type="submit" class="submit-request">
+</form>
+
+
+<br>
