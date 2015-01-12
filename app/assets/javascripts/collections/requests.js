@@ -7,7 +7,6 @@ Air.Collections.Requests = Backbone.Collection.extend({
     var requests = Air.requests;
     if (!request) {
       request = new Air.Models.Request({ id : id });
-      request = new Air.Models.User({ id : id });
       request.fetch({
         success: function () {
           requests.add(request);
