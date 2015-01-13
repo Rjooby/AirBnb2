@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20150108164539) do
     t.string   "camptype",      null: false
     t.integer  "owner_id",      null: false
     t.integer  "price",         null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.text     "description",   null: false
     t.string   "coordinates",   null: false
     t.integer  "max_occupancy", null: false

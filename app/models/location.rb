@@ -1,6 +1,8 @@
 class Location < ActiveRecord::Base
   validates :name, :camptype, :price, :description, :coordinates, presence: true
   validates :max_occupancy, presence: true
+  geocoded_by :coordinates
+  after_validation :geocode, if: :coordinates_changed?
 
   has_many :requests,
     dependent: :destroy,
