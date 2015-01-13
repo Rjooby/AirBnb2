@@ -1,7 +1,8 @@
 class Api::RequestsController < Api::ApiController
 
   def index
-    @requests = Request.all
+    @requests = Request.where(location_id: params[:location_id])
+    puts @requests
     render json: @requests
   end
 
@@ -22,12 +23,21 @@ class Api::RequestsController < Api::ApiController
 
   def update
     @request = Request.find(params[:id])
+    # puts @request.update(request_params)
+      if params[:status] == "APPROVED"
+        @request.approve!
+        render json: @request
+      elsif params[:status] == "DENIED"
+        @request.deny!
+        render json: @request
+      end
+    # puts @request.status
   end
 
   private
 
   def request_params
-    params.require(:request).permit(:guests_num, :start_date, :end_date, :location_id)
+    params.require(:request).permit(:guests_num, :start_date, :end_date, :status, :location_id)
   end
 
 end
