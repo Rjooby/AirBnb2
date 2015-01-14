@@ -29,7 +29,46 @@
 </p>
 
 <br>
+<section class="showmap">
+
+  <div id='map-show' class='map-show'> </div>
+
+  <% console.log(location); %>
+  <script>
+  var map = L.mapbox.map('map-show', 'rjooby.kodi76mc');
+  <% console.log(location.escape("longitude")); %>
+  map.setView([<%=location.escape("latitude")%>, <%=location.escape("longitude")%>], 15);
+
+  L.mapbox.featureLayer({
+    // this feature is in the GeoJSON format: see geojson.org
+    // for the full specification
+    type: 'Feature',
+    geometry: {
+      type: 'Point',
+      // coordinates here are in longitude, latitude order because
+      // x, y is the standard for GeoJSON and many formats
+      coordinates: [
+      -77.03221142292,
+      38.913371603574
+      ]
+    },
+    properties: {
+      title: 'Peregrine Espresso',
+      description: '1718 14th St NW, Washington, DC',
+      'marker-size': 'large',
+      'marker-color': '#BE9A6B',
+      'marker-symbol': 'cafe'
+    }
+
+
+  </script>
+
+</section>
+
 <form class="request">
+</div>
+
+
 <h3> Interested? Request a booking </h3>
 
   <label>Number of Campers

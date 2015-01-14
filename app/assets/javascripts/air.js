@@ -4,6 +4,8 @@ window.Air = {
   Views: {},
   Routers: {},
   initialize: function() {
+    L.mapbox.accessToken = 'pk.eyJ1Ijoicmpvb2J5IiwiYSI6IjU1VlpHSncifQ.s94ec3J04a7nUvuB7GrlNQ';
+
     Air.locations = new Air.Collections.Locations();
     Air.locations.fetch();
     Air.users = new Air.Collections.Users();
@@ -16,7 +18,3 @@ window.Air = {
 
   }
 };
-
-$(document).ready(function(){
-  Air.initialize();
-});

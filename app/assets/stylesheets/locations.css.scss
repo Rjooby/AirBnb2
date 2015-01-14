@@ -29,3 +29,18 @@
 .content {
   position: relative;
 }
+
+section.showmap{
+  position: relative;
+  float: right;
+  width: 300px;
+  height: auto;
+  margin: 0 100px;
+}
+
+.map-show {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  top: 0;
+}

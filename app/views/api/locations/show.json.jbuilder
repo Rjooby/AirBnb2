@@ -1,4 +1,4 @@
-json.extract! @location, :id, :name, :camptype, :owner_id, :price, :description, :coordinates, :max_occupancy, :water, :bathroom, :created_at, :updated_at
+json.extract! @location, :id, :latitude, :longitude, :name, :camptype, :owner_id, :price, :description, :coordinates, :max_occupancy, :water, :bathroom, :created_at, :updated_at
 
 json.current current_user
 
