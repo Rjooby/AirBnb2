@@ -5,7 +5,7 @@
   adfsdf
     <div id='map-one' class='map'> </div>
 <script>
-L.mapbox.map('map-one', 'rjooby.kodi76mc');
+var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
 </script>
   </section>
 
@@ -26,11 +26,54 @@ L.mapbox.map('map-one', 'rjooby.kodi76mc');
     </main>
     <main class="index-listing-locations">
       <h4>Available locations</h4>
-      <ul class="locations-list">
+      <ul id='locations-list'>
       <% locations.each(function (location) { %>
+      <% console.log(location) %>
+
+        <script>
+
+            L.mapbox.featureLayer({
+              type: 'Feature',
+              geometry: {
+                type: 'Point',
+                coordinates: [
+                <%=location.escape("longitude")%>,
+                <%=location.escape("latitude")%>
+                ]
+              },
+              properties: {
+                title: '<%=location.escape("name") %>',
+                description: '<%=location.escape("description")%>',
+                'marker-size': 'large',
+                'marker-color': '#00A1D6',
+                'marker-symbol': 'campsite'
+              }
+            }).addTo(map);
+
+        </script>
+
         <li><a href="#/locations/<%=location.escape("id")%>"><%= location.escape("name") %></a></li>
+        
       <% }); %>
       </ul>
+
+      <script>
+
+          var markerList = document.getElementById('locations-list');
+
+          map.featureLayer.on('ready', function(e) {
+              map.featureLayer.eachLayer(function(layer) {
+                  var item = markerList.appendChild(document.createElement('li'));
+                  item.innerHTML = layer.toGeoJSON().properties.title;
+                  item.onclick = function() {
+                     map.setView(layer.getLatLng(), 14);
+                     layer.openPopup();
+                  };
+              });
+          });
+
+      </script>
+
     </main>
   </section>
 </div>
