@@ -22,7 +22,7 @@ gem 'ejs'
 gem 'figaro'
 
 gem 'paperclip'
-
+gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

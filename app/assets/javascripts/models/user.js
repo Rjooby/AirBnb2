@@ -27,6 +27,15 @@ Air.Models.User = Backbone.Model.extend({
       this._booking_requests = new Air.Collections.Requests();
     }
     return this._booking_requests
+  },
+
+  toJSON: function () {
+    var json = {user: _.clone(this.attributes)};
+
+    if (this._image) {
+      json.user.avatar = this._image;
+    }
+    return json;
   }
 
 });

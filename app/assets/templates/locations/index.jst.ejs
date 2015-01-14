@@ -6,6 +6,7 @@
     <div id='map-one' class='map'> </div>
 <script>
 var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
+var featureLayer = L.mapbox.featureLayer().addTo(map);
 </script>
   </section>
 
@@ -32,7 +33,7 @@ var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
 
         <script>
 
-            L.mapbox.featureLayer({
+            featureLayer.setGeoJSON({
               type: 'Feature',
               geometry: {
                 type: 'Point',
@@ -48,12 +49,12 @@ var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
                 'marker-color': '#00A1D6',
                 'marker-symbol': 'campsite'
               }
-            }).addTo(map);
+            })
 
         </script>
 
         <li><a href="#/locations/<%=location.escape("id")%>"><%= location.escape("name") %></a></li>
-        
+
       <% }); %>
       </ul>
 
@@ -61,8 +62,8 @@ var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
 
           var markerList = document.getElementById('locations-list');
 
-          map.featureLayer.on('ready', function(e) {
-              map.featureLayer.eachLayer(function(layer) {
+          featureLayer.on('ready', function(e) {
+              featureLayer.eachLayer(function(layer) {
                   var item = markerList.appendChild(document.createElement('li'));
                   item.innerHTML = layer.toGeoJSON().properties.title;
                   item.onclick = function() {

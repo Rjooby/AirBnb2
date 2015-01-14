@@ -31,7 +31,7 @@ Air.Routers.Router = Backbone.Router.extend({
 
   showUser: function (id) {
     var user = Air.users.getOrFetch(id);
-    var view = new Air.Views.UserShow({ model : user });
+    var view = new Air.Views.UserShow({ model : user, collection : Air.users });
     this._swapView(view);
   },
 
