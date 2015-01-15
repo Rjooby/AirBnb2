@@ -2,6 +2,8 @@ class Location < ActiveRecord::Base
   validates :name, :camptype, :price, :description, :coordinates, presence: true
   validates :max_occupancy, presence: true
   geocoded_by :coordinates
+  has_attached_file :photo, default_url: "earth.jpg"
+  validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   after_validation :geocode, if: :coordinates_changed?
 
   has_many :requests,

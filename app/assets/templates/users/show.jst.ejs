@@ -10,18 +10,20 @@
 
 <br>
 
-<img src="" width="50" id="preview-user-avatar">
+<img src="<%= user.escape("avatar_url") %>" width="50" id="preview-user-avatar">
 
 <br>
-
-
 
 <h3> Your posted locations </h3>
 
 <ul>
   <% user.locations().each(function (location){  %>
 
-    <li><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a> <p><a href="#/locations/<%=location.id%>/requests">Requests</a></p>  </li>
+    <li><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a>
+       <p><a href="#/locations/<%=location.id%>/requests">Requests</a></p>
+       
+       <p><button class="delete-location" data-id="<%= location.id %>">Delete</button>      </p>
+     </li>
 
   <% }); %>
 </ul>

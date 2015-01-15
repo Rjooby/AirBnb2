@@ -32,8 +32,6 @@ class LocationsController < ApplicationController
 
   def update
     @location = Location.find(params[:id])
-    @location.water = (params[:water] == "1" ? true : false )
-    @location.bathroom = (params[:bathroom] == "1" ? true : false)
     if @location.update(location_params)
       redirect_to location_url(@location)
     else

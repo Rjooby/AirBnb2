@@ -11,25 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150114173123) do
+ActiveRecord::Schema.define(version: 20150115154250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "locations", force: true do |t|
-    t.string   "name",          null: false
-    t.string   "camptype",      null: false
-    t.integer  "owner_id",      null: false
-    t.integer  "price",         null: false
+    t.string   "name",               null: false
+    t.string   "camptype",           null: false
+    t.integer  "owner_id",           null: false
+    t.integer  "price",              null: false
     t.float    "latitude"
     t.float    "longitude"
-    t.text     "description",   null: false
-    t.string   "coordinates",   null: false
-    t.integer  "max_occupancy", null: false
+    t.text     "description",        null: false
+    t.string   "coordinates",        null: false
+    t.integer  "max_occupancy",      null: false
     t.boolean  "water"
     t.boolean  "bathroom"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "locations", ["owner_id"], name: "index_locations_on_owner_id", using: :btree

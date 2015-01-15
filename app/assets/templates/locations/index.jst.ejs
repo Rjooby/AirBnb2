@@ -4,10 +4,15 @@
   <section class="index-map">
   adfsdf
     <div id='map-one' class='map'> </div>
+
 <script>
 var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
 var featureLayer = L.mapbox.featureLayer().addTo(map);
+var geoJSON =
+  {type: "FeatureCollection",
+  features: []};
 </script>
+
   </section>
 
   <section class="index-listings">
@@ -27,13 +32,13 @@ var featureLayer = L.mapbox.featureLayer().addTo(map);
     </main>
     <main class="index-listing-locations">
       <h4>Available locations</h4>
-      <ul id='locations-list'>
+      <ul id='locations-list'>    </ul>
+      <%console.log(locations)%>
       <% locations.each(function (location) { %>
-      <% console.log(location) %>
 
         <script>
 
-            featureLayer.setGeoJSON({
+            geoJSON.features.push({
               type: 'Feature',
               geometry: {
                 type: 'Point',
@@ -45,6 +50,7 @@ var featureLayer = L.mapbox.featureLayer().addTo(map);
               properties: {
                 title: '<%=location.escape("name") %>',
                 description: '<%=location.escape("description")%>',
+                id: '<%= location.id %>',
                 'marker-size': 'large',
                 'marker-color': '#00A1D6',
                 'marker-symbol': 'campsite'
@@ -53,25 +59,30 @@ var featureLayer = L.mapbox.featureLayer().addTo(map);
 
         </script>
 
-        <li><a href="#/locations/<%=location.escape("id")%>"><%= location.escape("name") %></a></li>
+
 
       <% }); %>
-      </ul>
 
       <script>
 
-          var markerList = document.getElementById('locations-list');
+      featureLayer.setGeoJSON(geoJSON);
 
-          featureLayer.on('ready', function(e) {
-              featureLayer.eachLayer(function(layer) {
-                  var item = markerList.appendChild(document.createElement('li'));
-                  item.innerHTML = layer.toGeoJSON().properties.title;
-                  item.onclick = function() {
-                     map.setView(layer.getLatLng(), 14);
-                     layer.openPopup();
-                  };
-              });
+
+        var markerList = document.getElementById('locations-list');
+        map.featureLayer.on('ready', function(e) {
+          featureLayer.eachLayer(function(layer) {
+            var $ul = $("ul#locations-list");
+            var $li = $('<li>');
+            var $a =  $('<a>');
+            $a.attr("href", "#/locations/" + layer.feature.properties.id);
+            $a.html(layer.feature.properties.title)
+            $li.html($a);
+            $li.on("mouseenter", function(event) {
+              map.panTo(layer.getLatLng());
+            })
+            $ul.append($li);
           });
+        });
 
       </script>
 

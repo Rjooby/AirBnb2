@@ -38,6 +38,14 @@ Air.Models.Location = Backbone.Model.extend({
       this._reviews = new Air.Collections.Reviews();
     }
     return this._reviews;
+  },
+
+  toJSON: function () {
+    var json = {location: _.clone(this.attributes)};
+    if (this._image) {
+      json.location.photo = this._image;
+    }
+    return json;
   }
 
 });

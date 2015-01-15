@@ -4,16 +4,17 @@ Air.Views.UserShow = Backbone.View.extend({
 
   events: {
     "submit form" : "submit",
-    "change #input-url-avatar" : "fileInputChange"
+    "change #input-url-avatar" : "fileInputChange",
+    "click .delete-location" : "deleteLocation"
 
   },
 
   initialize: function () {
     this.listenTo( this.model, "sync", this.render);
+    this.listenTo( Air.locations, "destroy", this.render);
   },
 
   render: function () {
-    console.log("rendering");
     var content = this.template({ user : this.model });
     this.$el.html(content);
     return this;
@@ -28,7 +29,6 @@ Air.Views.UserShow = Backbone.View.extend({
     reader.onloadend = function(){
       that._updatePreview(reader.result);
       that.model._image = reader.result;
-      console.log(that.model);
     }
 
     if (file) {
@@ -44,8 +44,7 @@ Air.Views.UserShow = Backbone.View.extend({
   },
 
   submit: function (event) {
-    event.preventDefault()
-    console.log(this.model);
+    event.preventDefault();
     var that = this;
     var formData = $(event.currentTarget).serializeJSON();
     this.model.save({}, {
@@ -55,6 +54,16 @@ Air.Views.UserShow = Backbone.View.extend({
         delete that.model._image;
       }
     })
+  },
+
+  deleteLocation: function (event) {
+    event.preventDefault();
+    $target = $(event.currentTarget);
+    console.log($target);
+    var location2 = this.model.locations().get($target.attr("data-id"));
+    location2.destroy();
+    var location = Air.locations.get($target.attr("data-id"));
+    location.destroy();
   }
 
 

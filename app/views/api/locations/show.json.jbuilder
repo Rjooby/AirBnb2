@@ -1,4 +1,5 @@
 json.extract! @location, :id, :latitude, :longitude, :name, :camptype, :owner_id, :price, :description, :coordinates, :max_occupancy, :water, :bathroom, :created_at, :updated_at
+json.photo_url asset_path(@location.photo.url)
 
 json.current current_user
 

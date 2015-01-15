@@ -1,7 +1,6 @@
 
 
-
-  <!-- <input type="hidden" name="authenticity_token" value="<#%=form_authenticity_token%>"> -->
+  <form>
 
   <label for="location_name"> Name <br>
   <input type="text" name="location[name]" value="<%= location.name %>">
@@ -63,4 +62,14 @@
 
   <br><br>
 
+  <label for="location_photo"> Share a photo of your campgrounds
+    <input type="file" name="location[photo]" id="input-url-photo">
+  </label>
+
+  <img src="" id="preview-location-photo" width="200" />
+
+  <br><br>
+
+
   <input type="submit" value="Submit" class="formsubmit">
+  </form>
