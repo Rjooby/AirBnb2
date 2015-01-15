@@ -20,17 +20,14 @@ module Air
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.assets.path << "app/assets/templates"
 
     config.paperclip_defaults = {
-      storage: s3,
+      storage: :s3,
       s3_credentials: {
-        bucket: ENV["s3_bucke"],
+        bucket: ENV["s3_bucket"],
         access_key_id: ENV["s3_access_key_id"],
         secret_access_key: ENV["s3_secret_access_key"]
       }
     }
-
-
   end
 end
