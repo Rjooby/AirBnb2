@@ -8,14 +8,14 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
-  
+
 
   <script charset="utf-8">
   $(document).ready(function(){
-    Air.CurrentLocation = {
-      longitude: <%= current_location[:latitude] %>,
-      latitude: <%= current_location[:longitude] %>
-    }
+    // Air.CurrentLocation = {
+    //   longitude: <%#= current_location[:latitude] %>,
+    //   latitude: <%#= current_location[:longitude] %>
+    // }
 
     Air.initialize();
   });
