@@ -5,6 +5,7 @@ class Location < ActiveRecord::Base
   has_attached_file :photo, default_url: "earth.jpg"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
   after_validation :geocode, if: :coordinates_changed?
+  attr_accessor :latitude, :longitude
 
   has_many :requests,
     dependent: :destroy,
