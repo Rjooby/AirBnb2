@@ -37,7 +37,7 @@ class Api::RequestsController < Api::ApiController
   private
 
   def request_params
-    params.require(:request).permit(:guests_num, :start_date, :end_date, :status, :location_id)
+    params.permit(:guests_num, :start_date, :end_date, :status, :location_id)
   end
 
 end
