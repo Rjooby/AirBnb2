@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create!(username: "Ron", password: "ronron")
+User.create!(username: "Ron", password: "ronron", avatar_url: "http://img3.wikia.nocookie.net/__cb20140410195936/pokemon/images/archive/e/e1/20150101093317!025Pikachu_OS_anime_4.png")
 User.create!(username: "dood", password: "doodle")
 User.create!(username: "algore", password: "president")
 User.create!(username: "Janky", password: "yoyoyo")
@@ -21,7 +21,9 @@ Location.create!(
   coordinates: "36-68 79th Street Transverse, New York, NY 10024",
   max_occupancy: 1,
   water: false,
-  bathroom: false)
+  bathroom: false,
+  photo_url: "http://hqwallbase.com/images/big/central_park_tunnel-1560887.jpg"
+  )
 
 Location.create!(
   name: "Museum of Natural History",

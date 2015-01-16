@@ -20,9 +20,14 @@
   <% user.locations().each(function (location){  %>
 
     <li><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a>
+      <% console.log(user.get("current").id) %>
+      <% if (user.get("current").id == location.get("owner_id")){  %>
+
        <p><a href="#/locations/<%=location.id%>/requests">Requests</a></p>
-       
        <p><button class="delete-location" data-id="<%= location.id %>">Delete</button>      </p>
+       <p> <a href="#/locations/<%= location.id %>/edit">Edit</a> </p>
+
+       <% } %>
      </li>
 
   <% }); %>

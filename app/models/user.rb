@@ -51,8 +51,16 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def avatar_url=(avatar_url)
+    unless self.avatar.exists?
+      self.avatar = avatar_url
+    end
+  end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
+
+
 end

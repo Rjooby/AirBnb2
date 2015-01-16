@@ -23,5 +23,11 @@ class Location < ActiveRecord::Base
     foreign_key: :owner_id,
     primary_key: :id
 
+  def photo_url=(photo_url)
+    unless self.photo.exists?
+      self.photo = photo_url
+    end
+  end
+
 
 end

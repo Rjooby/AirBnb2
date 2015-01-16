@@ -27,6 +27,12 @@ class Api::LocationsController < Api::ApiController
     render json: {}
   end
 
+  def update
+    @location = Location.find(params[:id])
+    @location.update(location_params)
+    render :show
+  end
+
   private
   def location_params
     params.require(:location).permit(:name, :photo, :camptype, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)

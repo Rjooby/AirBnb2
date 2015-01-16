@@ -48,6 +48,6 @@ class LocationsController < ApplicationController
 
   private
   def location_params
-    params.require(:location).permit(:name, :camptype, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)
+    params.require(:location).permit(:name,:photo_url, :camptype, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)
   end
 end

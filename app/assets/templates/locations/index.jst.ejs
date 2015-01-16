@@ -7,6 +7,7 @@
 
 <script>
 var map = L.mapbox.map('map-one', 'rjooby.kodi76mc');
+
 var featureLayer = L.mapbox.featureLayer().addTo(map);
 var geoJSON =
   {type: "FeatureCollection",
@@ -17,23 +18,28 @@ var geoJSON =
 
   <section class="index-listings">
     <main class="index-listing-form">
-      <form class="form-listing-search">
+      <form class="search">
         <label for=""> Where?
-        <input type="text" name="some_name" value="">
+          <select name="where">
+            <option value="NYC"> New York </option>
+            <option value="SF"> San Francisco </option>
+            <option value="SEOUL"> Seoul </option>
+            <option value="BALI"> Bali </option>
+          </select>
+
         </label>
 
         <label>When?</label>
-        <input type="date" name="some_name" value="">
+        <input type="date" name="start" value="">
         to
-        <input type="date" name="some_name" value="">
-        <input type="submit" name="some_name" value="Take me away">
+        <input type="date" name="end" value="">
+        <input type="submit" value="submit">
       </form>
 
     </main>
     <main class="index-listing-locations">
       <h4>Available locations</h4>
       <ul id='locations-list'>    </ul>
-      <%console.log(locations)%>
       <% locations.each(function (location) { %>
 
         <script>
@@ -79,6 +85,7 @@ var geoJSON =
             $li.html($a);
             $li.on("mouseenter", function(event) {
               map.panTo(layer.getLatLng());
+
             })
             $ul.append($li);
           });
