@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
   before_action :require_signed_in!, only: [:new, :create, :edit, :update, :destroy]
-
+  attr_accessor: :latitude, :longitude
   def index
     @locations = Location.all
   end

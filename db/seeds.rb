@@ -12,7 +12,7 @@ User.create!(username: "dood", password: "doodle")
 User.create!(username: "algore", password: "president")
 User.create!(username: "Janky", password: "yoyoyo")
 
-l = Location.create!(
+Location.create!(
   name: "Central Park Tunnel",
   camptype: "drive",
   owner_id: 1,
