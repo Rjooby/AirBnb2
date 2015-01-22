@@ -5,6 +5,8 @@ window.Air = {
   Routers: {},
   initialize: function() {
     L.mapbox.accessToken = 'pk.eyJ1Ijoicmpvb2J5IiwiYSI6IjU1VlpHSncifQ.s94ec3J04a7nUvuB7GrlNQ';
+    this.currentUser = new Air.Models.CurrentUser();
+    this.currentUser.fetch();
     Air.locations = new Air.Collections.Locations();
     Air.locations.fetch();
     Air.users = new Air.Collections.Users();
