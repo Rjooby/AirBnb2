@@ -1,0 +1,9 @@
+s3_access_key_id: "XXX"
+s3_secret_access_key: "XXX"
+
+
+production:
+  s3_bucket: "cats-demo-production"
+
+development:
+  s3_bucket: "cats-demo"

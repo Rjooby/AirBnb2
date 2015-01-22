@@ -21,8 +21,7 @@ Location.create!(
   coordinates: "36-68 79th Street Transverse, New York, NY 10024",
   max_occupancy: 1,
   water: false,
-  bathroom: false,
-  photo_url: "http://hqwallbase.com/images/big/central_park_tunnel-1560887.jpg"
+  bathroom: false
   )
 
 Location.create!(

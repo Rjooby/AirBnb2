@@ -4,8 +4,7 @@ class Location < ActiveRecord::Base
   geocoded_by :coordinates
   has_attached_file :photo, default_url: "earth.jpg"
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
-  after_validation :geocode, if: :coordinates_changed?
-  attr_accessor :latitude, :longitude
+  after_validation :check_geocode
 
   has_many :requests,
     dependent: :destroy,
@@ -23,6 +22,12 @@ class Location < ActiveRecord::Base
     class_name: "User",
     foreign_key: :owner_id,
     primary_key: :id
+
+  def check_geocode
+    unless self.latitude
+      geocode
+    end
+  end
 
   def photo_url=(photo_url)
     unless self.photo.exists?
