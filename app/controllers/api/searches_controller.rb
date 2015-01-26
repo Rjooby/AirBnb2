@@ -1,7 +1,9 @@
 class Api::SearchesController < ApplicationController
 
   def index
-    @search_results = PgSearch.multisearch(params[:query])
+
+    @search_results = Location.near(params[:query], 100)
+    puts @search_results
 
   end
 

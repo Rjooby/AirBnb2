@@ -13,7 +13,6 @@ Air.Views.Search = Backbone.View.extend({
   template: JST["shared/search"],
 
   render: function () {
-    console.log("HEY");
     var content = this.template({collection: this.searchResults});
     this.$el.html(content);
 
@@ -25,6 +24,7 @@ Air.Views.Search = Backbone.View.extend({
   renderSearchResults: function () {
     var container = this.$(".search-results");
     this.searchResults.each(function(model) {
+      console.log(model);
       var template = JST["locations/list_item"]
       container.append(template({model: model}));
     });
@@ -32,7 +32,7 @@ Air.Views.Search = Backbone.View.extend({
 
   search: function(event){
     event.preventDefault();
-    this.searchResults._query - this.$(".query").val();
+    this.searchResults._query = this.$(".query").val();
     this.searchResults.fetch({
       data: {query: this.searchResults._query}
     });
