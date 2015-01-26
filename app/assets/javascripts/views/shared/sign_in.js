@@ -12,10 +12,7 @@ Air.Views.SignIn = Backbone.View.extend({
   template: JST['shared/sign_in'],
 
   render: function(){
-    console.log(this.$el);
-    console.log(this.template);
     this.$el.html(this.template());
-
     return this;
   },
 
@@ -25,7 +22,7 @@ Air.Views.SignIn = Backbone.View.extend({
     var formData = $form.serializeJSON().user;
 
     Air.currentUser.signIn({
-      email: formData.email,
+      username: formData.username,
       password: formData.password,
       error: function(){
         alert("Wrong username/password combination. Please try again.");

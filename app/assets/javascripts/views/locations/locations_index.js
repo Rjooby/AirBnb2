@@ -12,7 +12,7 @@ Air.Views.LocationsIndex = Backbone.View.extend({
   },
 
   render: function () {
-    console.log('rendering');
+    console.log(this.collection);
     var content = this.template({ locations : this.collection });
     this.$el.html(content);
     return this;

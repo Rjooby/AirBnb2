@@ -1,0 +1,24 @@
+  <header class="header">
+    <nav class="header-nav group">
+
+      <h2 class="header-logo"><a href="#">SleepingBnT</a></h2>
+      <ul class="header-navlist">
+      <% if (Air.currentUser.isSignedIn()) {%>
+        <li><a href="#/users/<%=Air.currentUser.id%>"><%= Air.currentUser.escape("username") %></a></li>
+
+
+        <li>
+          <form>
+            <a href="#" id="signout">Sign Out</a>
+          </form>
+        </li>
+        <li> <a href="#/locations/new"> Add Your Camp </a> </li>
+      <%} else {%>
+        <li> <a href="#/session/new">Sign In</a> </li>
+        <li> <a href="#/users/new">Sign up</a> </li>
+      <% } %>
+
+      </ul>
+
+    </nav>
+  </header>

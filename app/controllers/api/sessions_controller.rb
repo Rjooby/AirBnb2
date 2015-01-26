@@ -9,20 +9,22 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
+    puts "adlkfabfakubflaieufba"
+    puts params
     user = User.find_by_credentials(
-                  params[:user][:email],
+                  params[:user][:username],
                   params[:user][:password])
 
     if user.nil?
       head :unprocessable_entity
     else
-      sign_in!(user)
+      sign_in(user)
       render :show
     end
   end
 
   def destroy
-    sign_out!
+    sign_out
     render json: {}
   end
 end

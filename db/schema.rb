@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150115154250) do
+ActiveRecord::Schema.define(version: 20150126045235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20150115154250) do
   end
 
   add_index "locations", ["owner_id"], name: "index_locations_on_owner_id", using: :btree
+
+  create_table "pg_search_documents", force: true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "requests", force: true do |t|
     t.integer  "location_id",                      null: false
@@ -65,6 +73,8 @@ ActiveRecord::Schema.define(version: 20150115154250) do
 
   create_table "users", force: true do |t|
     t.string   "username",            null: false
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "password_digest",     null: false
     t.string   "session_token",       null: false
     t.datetime "created_at"

@@ -55,7 +55,7 @@ Air.Models.CurrentUser = Air.Models.User.extend({
   signIn: function(options){
     var model = this;
     var credentials = {
-      "user[email]": options.email,
+      "user[username]": options.username,
       "user[password]": options.password
     };
 
@@ -74,7 +74,7 @@ Air.Models.CurrentUser = Air.Models.User.extend({
     });
   },
 
-  signOut: function(options){
+  signOut: function(){
     var model = this;
 
     $.ajax({
@@ -83,7 +83,6 @@ Air.Models.CurrentUser = Air.Models.User.extend({
       dataType: "json",
       success: function(data){
         model.clear();
-        options.success && options.success();
       }
     });
   },
