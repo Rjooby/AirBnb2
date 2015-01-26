@@ -10,7 +10,7 @@ Air.Views.Header = Backbone.View.extend({
     "submit #signin" : "signIn"
   },
 
-  template: JST ['shared/header'],
+  template: JST['shared/header'],
 
   render: function(){
     var content = this.template({ currentUser: Air.currentUser });

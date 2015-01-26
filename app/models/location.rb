@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   include PgSearch
-
+  multisearchable against: [:coordinates, :name]
   validates :name, :camptype, :price, :description, :coordinates, presence: true
   validates :max_occupancy, presence: true
   geocoded_by :coordinates
@@ -25,10 +25,10 @@ class Location < ActiveRecord::Base
     foreign_key: :owner_id,
     primary_key: :id
 
-
-  def close_by?
-    Location.near(self.coordinates, 100).include?(coordinates)
-  end
+  # 
+  # def close_by?
+  #   Location.near(self.coordinates, 100).include?(coordinates)
+  # end
 
   def check_geocode
     unless self.latitude

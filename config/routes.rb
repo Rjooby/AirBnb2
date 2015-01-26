@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :requests
     resources :reviews
     resource :session, only: [:show, :create, :destroy]
+    get "search", to: "searches#index"
   end
 
 
