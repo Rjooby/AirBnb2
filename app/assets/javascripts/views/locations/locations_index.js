@@ -1,29 +1,43 @@
 Air.Views.LocationsIndex = Backbone.View.extend({
 
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render),
-    this.listenTo(this.collection, "sync route", this.renderListing)
+    this.searchResults = new Air.Collections.SearchResults();
+    this.listenTo(this.searchResults, "sync change", this.changeColl)
+    this.listenTo(this.collection, "sync change reset", this.render),
+    this.listenTo(this.collection, "sync change route", this.renderListing)
   },
 
   template: JST['locations/index'],
 
   events: {
-    "submit" : "search"
+    "click .submit" : "search"
   },
 
   render: function () {
+    console.log("rendering");
     var content = this.template({ locations : this.collection });
     this.$el.html(content);
-    $form = this.$el.find(".index-listing-form");
-    var sview = new Air.Views.Search(collection : this.collection);
-    $form.append(sview.render().$el);
-    console.log($form);
     return this;
+  },
+
+  changeColl: function () {
+    this.collection = this.searchResults;
+    console.log(this.collection);
   },
 
   search: function (event) {
     event.preventDefault();
-    var info = $(event.currentTarget).serializeJSON();
+
+    this.collection._query = this.$(".query").val();
+    this.collection.fetch({
+      data: {query: this.collection._query}
+    })
+
+
+    // this.collection._query = this.$(".query").val();
+    // this.collection.fetch({
+    //   data: {query: this.collection._query}
+    // });
   },
 
   renderListing: function () {
@@ -86,6 +100,7 @@ Air.Views.LocationsIndex = Backbone.View.extend({
           $h4.html(layer.feature.properties.title);
           $h5.html("$" + layer.feature.properties.price);
           $div.append($h4);
+
 
           // console.log($a);
 

@@ -1,7 +1,6 @@
 Air.Views.Search = Backbone.View.extend({
 
   initialize: function () {
-    this.listenTo(this.collection, "sync", this.render);
     this.searchResults = new Air.Collections.SearchResults();
     this.listenTo(this.searchResults, "sync", this.render);
   },
@@ -23,16 +22,15 @@ Air.Views.Search = Backbone.View.extend({
   },
 
   renderSearchResults: function () {
+    console.log(this.searchResults);
     var container = this.$(".search-results");
     this.searchResults.each(function(model) {
-      console.log(model);
       var template = JST["locations/list_item"]
       container.append(template({model: model}));
     });
   },
 
   search: function(event){
-    console.log("hwat");
     event.preventDefault();
     this.searchResults._query = this.$(".query").val();
     this.searchResults.fetch({

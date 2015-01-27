@@ -1,8 +1,13 @@
 class Api::LocationsController < Api::ApiController
 
   def index
-    @locations = Location.all
-    render :index
+    if (params[:query])
+      @locations = Location.near(params[:query], 100)
+      render :index
+    else
+      @locations = Location.all
+      render :index
+    end
   end
 
   def show
