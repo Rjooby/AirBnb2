@@ -2,19 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.content {
+#content {
   position: relative;
   height: 100%;
 }
 
 .main {
-  height: calc(100%);
+  height: 100%;
+  position: relative;
 }
 
 .index-map {
   // display: block;
   position: absolute;
-
   float: left;
   width: 45%;
   height: calc(100% - 36px);
@@ -27,22 +27,75 @@
   top: 0;
 }
 
-.index-listings {
+.index-listings{
+  position: relative;
   float: right;
   width: 55%;
+  height: calc(100% - 36px);
+  // height: 400px;
+  overflow-y: scroll;
+}
+
+.index-listing-form {
+  padding: 20px;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.index-listing-locations {
+  background: #E0E0E0;
+}
+
+.index-listing-locations > h4 {
+  display: block;
+  font-size: 24px;
+  text-align: center;
+  padding: 8px 0 0 0;
+
+}
+
+#locations-list {
+  width: 950px;
 }
 
 #locations-list > li {
+  position: relative;
   padding: 15px;
-  width: 420px;
+  width: 440px;
   float: left;
+}
+
+#locations-list > li > h5 {
+  position: absolute;
+  top: 60%;
+  font-size: 20px;
+  color: #ecf0f1;
+  background:#7f8c8d;
+  padding: 9px 15px;
+  opacity: 66%;
+  left: 15px;
+}
+
+#locations-list {
+  margin:  0px 20px 20px 20px;
+}
+
+#locations-list > li > div {
+  background: #E0E0E0;
+}
+
+#locations-list > li > div > h4{
+  padding: 10px;
 }
 
 a.listing {
   display: block;
-  border: 1px solid black;
+  position: relative;
+  height: 293px;
+  overflow: hidden;
+}
 
-
+a.listing > img {
+  display:block;
 }
 
 section.showmap{

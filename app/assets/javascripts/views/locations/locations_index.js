@@ -14,6 +14,10 @@ Air.Views.LocationsIndex = Backbone.View.extend({
   render: function () {
     var content = this.template({ locations : this.collection });
     this.$el.html(content);
+    $form = this.$el.find(".index-listing-form");
+    var sview = new Air.Views.Search(collection : this.collection);
+    $form.append(sview.render().$el);
+    console.log($form);
     return this;
   },
 
@@ -32,7 +36,6 @@ Air.Views.LocationsIndex = Backbone.View.extend({
       features: []
       };
 
-      console.log(this.collection);
     this.collection.each( function(location) {
 
       geoJSON.features.push({
@@ -49,6 +52,7 @@ Air.Views.LocationsIndex = Backbone.View.extend({
           description: location.escape("description"),
           id: location.id,
           photo_url: location.escape("photo_url"),
+          price: location.escape("price"),
           'marker-size': 'large',
           'marker-color': '#00A1D6',
           'marker-symbol': 'campsite'
@@ -64,15 +68,31 @@ Air.Views.LocationsIndex = Backbone.View.extend({
 
         featureLayer.eachLayer(function(layer) {
           var $ul = $("ul#locations-list");
+          $ul.addClass("group");
           var $li = $('<li>');
+
           var $a =  $('<a>');
-          var $img = $("<img>");
+          var $img = $('<img>');
           $img.attr("src", layer.feature.properties.photo_url);
           $a.attr("href", "#/locations/" + layer.feature.properties.id);
           $a.attr("class", "listing");
           $a.html($img);
+
+          var $div = $('<div>');
+          $div.attr("class", "listing-info");
+
+          var $h4 = $('<h4>');
+          var $h5 = $('<h5>');
+          $h4.html(layer.feature.properties.title);
+          $h5.html("$" + layer.feature.properties.price);
+          $div.append($h4);
+
+          // console.log($a);
+
           $li.html($a);
-          $li.on("mouseenter", function(event) {
+          $li.append($h5);
+          $li.append($div);
+          $a.on("mouseenter", function(event) {
             map.panTo(layer.getLatLng());
 
           })

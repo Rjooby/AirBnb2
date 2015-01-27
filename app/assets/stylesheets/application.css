@@ -16,7 +16,7 @@
 
 /*reset*/
 
-body, section, div, h1, h2, h3, a, p, ul, article, header {
+body, section, div, h1, h2, h3, h4, h5, a, p, ul, article, header, main {
   margin: 0;
   padding: 0;
   border: 0;
@@ -28,6 +28,9 @@ body, section, div, h1, h2, h3, a, p, ul, article, header {
   text-decoration: none;
 }
 
+section, article, header, main {
+  display: block;
+}
 
 ul {
   list-style: none;
@@ -40,10 +43,14 @@ ul {
 }
 
 /*header*/
-
+html{
+  height: 100%;
+}
 body {
   font-family: "Helvetica", sans-serif;
   font-size: 16px;
+  height: 100%;
+  overflow: hidden;
 }
 
 h3 {

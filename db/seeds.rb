@@ -34,7 +34,8 @@ Location.create!(
   coordinates: "81 St - Museum of Natural History",
   max_occupancy: 30,
   water: true,
-  bathroom: true)
+  bathroom: true,
+  photo_url: "http://www.coolplaces.co.uk/system/images/11058/the-secret-campsite-sleep-campsites-large.jpg")
 
 Location.create!(
   name: "Jersey Slums",
@@ -45,7 +46,8 @@ Location.create!(
   coordinates: "334 Harrison Ave Harrison, NJ 07029",
   max_occupancy: 10,
   water: false,
-  bathroom: false)
+  bathroom: false,
+  photo_url: "http://campsitedirect.com/wp-content/uploads/2014/12/campsite-direct.jpg")
 
 
 
@@ -58,7 +60,8 @@ Location.create!(
   coordinates: "150 Romaine Ave, Jersey City, NJ 07306",
   max_occupancy: 1000,
   water: true,
-  bathroom: true)
+  bathroom: true,
+  photo_url: "https://www.coolcamping.co.uk/system/images/3485/the-secret-campsite-large.jpg")
 
 Location.create!(
   name: "Mill Creek Marsh",
@@ -69,7 +72,8 @@ Location.create!(
   coordinates: "Mill Creek Marsh Trail Secaucus, NJ 07094",
   max_occupancy: 24,
   water: true,
-  bathroom: true)
+  bathroom: true,
+  photo_url: "https://www.coolcamping.co.uk/system/images/525/jerusalem-farm-large.jpg")
   #
 Location.create!(
   name: "Libery State Park",
@@ -80,7 +84,8 @@ Location.create!(
   coordinates: "200 Morris Pesin Drive Jersey City, NJ 07305",
   max_occupancy: 1,
   water: false,
-  bathroom: false)
+  bathroom: false,
+  photo_url: "http://static1.squarespace.com/static/5285b5cbe4b0f6fc5e481099/t/528ecef7e4b019edff2ce4ed/1385090812546/IMG_0388_1.jpg")
 
 Request.create!(
   location_id: 1,
