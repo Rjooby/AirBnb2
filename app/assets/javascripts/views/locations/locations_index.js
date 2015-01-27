@@ -12,7 +12,6 @@ Air.Views.LocationsIndex = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.collection);
     var content = this.template({ locations : this.collection });
     this.$el.html(content);
     return this;
@@ -33,6 +32,7 @@ Air.Views.LocationsIndex = Backbone.View.extend({
       features: []
       };
 
+      console.log(this.collection);
     this.collection.each( function(location) {
 
       geoJSON.features.push({
@@ -47,7 +47,8 @@ Air.Views.LocationsIndex = Backbone.View.extend({
         properties: {
           title: location.escape("name"),
           description: location.escape("description"),
-          id: location.id ,
+          id: location.id,
+          photo_url: location.escape("photo_url"),
           'marker-size': 'large',
           'marker-color': '#00A1D6',
           'marker-symbol': 'campsite'
@@ -65,8 +66,11 @@ Air.Views.LocationsIndex = Backbone.View.extend({
           var $ul = $("ul#locations-list");
           var $li = $('<li>');
           var $a =  $('<a>');
+          var $img = $("<img>");
+          $img.attr("src", layer.feature.properties.photo_url);
           $a.attr("href", "#/locations/" + layer.feature.properties.id);
-          $a.html(layer.feature.properties.title)
+          $a.attr("class", "listing");
+          $a.html($img);
           $li.html($a);
           $li.on("mouseenter", function(event) {
             map.panTo(layer.getLatLng());

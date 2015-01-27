@@ -21,7 +21,8 @@ Location.create!(
   coordinates: "36-68 79th Street Transverse, New York, NY 10024",
   max_occupancy: 1,
   water: false,
-  bathroom: false
+  bathroom: false,
+  photo_url: "https://www.coolcamping.co.uk/system/images/369/great-langdale-national-trust-campsite-large.jpg"
   )
 
 Location.create!(
