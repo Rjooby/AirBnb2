@@ -106,11 +106,15 @@ Air.Views.LocationsIndex = Backbone.View.extend({
     $li.append($h5);
     $li.append($div);
     $a.on("mouseenter", function(event) {
+      console.log(layer.feature.properties['marker-color'])
       Air.map.panTo(layer.getLatLng());
-
+      layer.feature.properties['marker-color'] = "#ccc";
+      layer.addTo(Air.map);
     })
     $ul.append($li);
   });
+
+  Air.map.fitBounds(featureLayer.getBounds());
 
 }
 

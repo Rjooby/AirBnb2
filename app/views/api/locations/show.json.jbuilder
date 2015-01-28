@@ -3,6 +3,8 @@ json.photo_url asset_path(@location.photo.url)
 
 json.current current_user
 
+json.owner_avatar asset_path(@location.owner.avatar.url)
+
 json.requests @location.requests do |request|
   json.id request.id
   json.location_id request.location_id

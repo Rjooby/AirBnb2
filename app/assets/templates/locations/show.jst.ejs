@@ -1,114 +1,101 @@
-<h3> <%= location.escape("name") %> </h3>
+<header class="location-show-header">
+  <img src="<%= location.escape("photo_url") %>">
+</header>
 
-<p>
-  <%= location.escape("description") %>
-</p>
+  <section class="location-show-leading group">
+    <img class="leading-pic" src="<%= location.escape("owner_avatar") %>" />
+    <div class="leading-text">
+      <h3> <%= location.escape("name") %> </h3>
+      <h4> <%= location.escape("coordinates") %></h3>
+    </div>
+  </section>
 
-<p>
-  Type: <%= location.escape("camptype") === "drive" ? "Drive-in" : "Wilderness" %>
-</p>
+<div class="info group">
 
-<p>
-  Max Occupancy: <%= location.escape("max_occupancy") %>
-</p>
+  <section class="description">
 
-<p>
-  Price: <%= location.escape("price") %>
-</p>
+    <h3> About this camp </h3>
+    <p>
+      <%= location.escape("description") %>
+    </p>
+  </section>
 
-<p>
-  Address: <%= location.escape("coordinates") %>
-</p>
+  <main class="location-show-info group">
 
-<p>
-  Water?: <%= location.get("water") ? "yes" : "no" %>
-</p>
+    <h4 class="detail-tag">Details</h4>
 
-<p>
-  Bathroom?: <%= location.get("bathroom") ? "yes" : "no" %>
-</p>
+    <section class="details">
 
-<br>
-<section class="showmap">
+    <p>
+      <%= location.escape("camptype") === "drive" ? "Drive-in" : "Wilderness" %>
+    </p>
 
-  <div id='map-show' class='map-show'> </div>
+    <p>
+      Accomodates <%= location.escape("max_occupancy") %>
+    </p>
 
-  <% console.log(location); %>
-  <script>
-  var map = L.mapbox.map('map-show', 'rjooby.kodi76mc');
-  map.setView([<%=location.escape("latitude")%>, <%=location.escape("longitude")%>], 13);
+    <p>
+      Price: $<%= location.escape("price") %>
+    </p>
 
-  L.mapbox.featureLayer({
-    type: 'Feature',
-    geometry: {
-      type: 'Point',
-      coordinates: [
-      <%=location.escape("longitude")%>,
-      <%=location.escape("latitude")%>
-      ]
-    },
-    properties: {
-      title: '<%=location.escape("name") %>',
-      description: '<%=location.escape("description")%>',
-      'marker-size': 'large',
-      'marker-color': '#00A1D6',
-      'marker-symbol': 'campsite'
-    }
-  }).addTo(map);
+    <p>
+      Water?: <%= location.get("water") ? "Drinking water available" : "Water must be brought in" %>
+    </p>
+
+    <p>
+      Bathroom?: <%= location.get("bathroom") ? "yes" : "no" %>
+    </p>
+
+    </section>
+
+  </main>
 
 
-  </script>
 
-</section>
+  <h3> Reviews </h3>
+  <% if ((location.reviews()).length === 0) {  %>
+    <h4> No reviews yet, be the first! </h4>
+  <%} else {%>
+  <ul>
+    <% location.reviews().each(function(review){  %>
+    <li><%=review.escape("body") %>
+      <i><%= review.escape("created_at") %></i>
+      <% if (location.current().id == review.escape("reviewer_id")){ %>
+        <button class="delete-review" data-id="<%= review.id %>">Delete</button>
+      <% } %>
+    </li>
+    <% }); %>
+  </ul>
+  <% } %>
 
-<form class="request">
+  <h3> Leave a review </h3>
+  <form class="review">
+    <textarea name="review[body]" rows="8" cols="40"></textarea>
+    <input type="hidden" name="review[location_id]" value="<%= location.id %>">
+    <input type="submit" class="submit-review-form">
+  </form>
+
+  <a href="#">Back to Listing</a>
+
 </div>
 
+<form class="location-request">
+  <h3> Interested? <br> Request a booking </h3>
 
-<h3> Interested? Request a booking </h3>
+  <label>Number of Campers</label>
+    <input type="number" name="request[guests_num]" value="">
 
-  <label>Number of Campers
-  <input type="number" name="request[guests_num]" value="">
-  </label>
-
-  <br>
-
-  <label> Start Date
+  <label>Start Date</label>
     <input type="date" name="request[start_date]" value="">
-  </label>
 
-  <br>
-
-  <label> Checkout Date
+  <label>Checkout Date</label>
     <input type="date" name="request[end_date]" value="">
-  </label>
 
   <input type="hidden" name="request[location_id]" value="<%=location.id%>">
-
   <input type="submit" class="submit-request">
 </form>
 
-<br>
-<h3> Reviews </h3>
-<ul>
-  <% location.reviews().each(function(review){  %>
-  <li><%=review.escape("body") %>
-    <i><%= review.escape("created_at") %></i>
-    <% if (location.current().id == review.escape("reviewer_id")){ %>
-      <button class="delete-review" data-id="<%= review.id %>">Delete</button>
-    <% } %>
-  </li>
-  <% }); %>
-</ul>
-<br>
 
-<h3> Leave a review </h3>
-
-<form class="review">
-  <textarea name="review[body]" rows="8" cols="40"></textarea>
-  <input type="hidden" name="review[location_id]" value="<%= location.id %>">
-  <input type="submit" class="submit-review-form">
-
-</form>
-
-<a href="#">Back to Listing</a>
+<!-- <section class="showmap">
+  <div id='map-show' class='map-show'> </div>
+</section> -->

@@ -3,6 +3,7 @@ Air.Views.LocationShow = Backbone.View.extend({
   initialize: function () {
     this.listenTo(this.model, "sync", this.render),
     this.listenTo(this.model.reviews(), "add remove", this.render)
+    // this.listenTo(this.model, "sync", this.renderMap)
   },
 
   events: {
@@ -14,9 +15,36 @@ Air.Views.LocationShow = Backbone.View.extend({
   template: JST['locations/show'],
 
   render: function () {
+    console.log('rendering');
     var content = this.template({ location: this.model });
     this.$el.html(content);
     return this;
+  },
+
+  renderMap: function () {
+    var map = L.mapbox.map('map-show', 'rjooby.kodi76mc');
+    console.log(this.model);
+    map.setView([this.model.escape("latitude"), this.model.escape("longitude")], 13);
+
+    L.mapbox.featureLayer({
+      type: 'Feature',
+      geometry: {
+        type: 'Point',
+        coordinates: [
+        this.model.escape("longitude"),
+        this.model.escape("latitude")
+        ]
+      },
+      properties: {
+        title: 'this.model.escape("name")',
+        description: 'this.model.escape("description")',
+        'marker-size': 'large',
+        'marker-color': '#00A1D6',
+        'marker-symbol': 'campsite'
+      }
+    }).addTo(map);
+
+
   },
 
   requestLocation: function (event) {
