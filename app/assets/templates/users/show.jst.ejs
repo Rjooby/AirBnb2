@@ -16,22 +16,21 @@
 
 <h3> Your posted locations </h3>
 
-<ul>
+<table>
   <% user.locations().each(function (location){  %>
 
-    <li><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a>
-      <% console.log(user.get("current").id) %>
+    <tr>
+      <td><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a><td>
       <% if (user.get("current").id == location.get("owner_id")){  %>
 
-       <p><a href="#/locations/<%=location.id%>/requests">Requests</a></p>
-       <p><button class="delete-location" data-id="<%= location.id %>">Delete</button>      </p>
-       <p> <a href="#/locations/<%= location.id %>/edit">Edit</a> </p>
-
+       <td><a href="#/locations/<%=location.id%>/requests">Requests</a><td>
+       <td><button class="delete-location" data-id="<%= location.id %>">Delete</button></td>
+       <td> <a href="#/locations/<%= location.id %>/edit">Edit</a> </td>
        <% } %>
-     </li>
+     </tr>
 
   <% }); %>
-</ul>
+</table>
 
 <br>
 

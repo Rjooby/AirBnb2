@@ -5,7 +5,8 @@ Air.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "" : "locationsIndex",
+    "" : "landing",
+    "locations" : "locationsIndex",
     "locations/new" : "newLocation",
     "locations/:id" : "showLocation",
     "locations/:id/requests" : "requestsIndex",
@@ -15,6 +16,8 @@ Air.Routers.Router = Backbone.Router.extend({
     "session/new" : "signIn",
     "search" : "search"
   },
+
+
 
   // ------Location
 
