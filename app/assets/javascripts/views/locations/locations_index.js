@@ -22,15 +22,18 @@ Air.Views.LocationsIndex = Backbone.View.extend({
     event.preventDefault();
 
     this.collection._query = this.$(".query").val();
+    var that = this;
     this.collection.fetch({
       data: {
         query: this.collection._query,
         success: function () {
-          var featureLayer = 
+          var og = that.collection.getOrFetch(1);
+          Air.map.panTo([parseFloat(og.escape("longitude")), parseFloat(og.escape("latitude"))]);
+
         }
       }
     })
-    Air.map.panTo("Hawaii");
+    // Air.map.panTo("Hawaii");
     // map.panTo(layer.getLatLng());
 
   },
