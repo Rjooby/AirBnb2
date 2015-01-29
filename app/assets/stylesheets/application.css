@@ -60,10 +60,14 @@ h3 {
 }
 
 .header {
+  position: relative;
   background: transparent;
+  height: 50px;
 }
 
 .header-nav {
+  position: absolute;
+  top: 10px;
   width: 100%;
   margin: auto;
 }
@@ -72,11 +76,14 @@ h3 {
   padding: 10px 50px;
   float: left;
   font-weight: 900;
+  font-size: 24px;
+  color: #ecf0f1;
 }
 
 .header-navlist {
   padding: 0px 50px;
   float: right;
+  color: #ecf0f1;
 }
 
 .header-navlist li {
@@ -86,4 +93,10 @@ h3 {
 .header-navlist a {
   display: block;
   padding: 10px 20px;
+}
+
+a.camp {
+  padding: 7px 15px;
+  background: #27ae60;
+  border-radius: 8%;
 }

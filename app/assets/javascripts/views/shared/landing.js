@@ -7,7 +7,7 @@ Air.Views.Landing = Backbone.View.extend({
   template: JST["shared/landing"],
 
   events: {
-    "click .submit" : "search"
+    "submit" : "search"
   },
 
   render: function () {
