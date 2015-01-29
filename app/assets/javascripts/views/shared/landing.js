@@ -26,6 +26,7 @@ Air.Views.Landing = Backbone.View.extend({
         success: function () {
           var i_view = new Air.Views.LocationsIndex({ className: 'main group', collection : that.collection });
           Air.router._swapView(i_view);
+          Backbone.history.navigate("/locations");
         }
       }
     })
