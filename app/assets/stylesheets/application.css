@@ -70,6 +70,7 @@ h3 {
   top: 10px;
   width: 100%;
   margin: auto;
+  color: #395;
 }
 
 .header-logo {
@@ -77,13 +78,11 @@ h3 {
   float: left;
   font-weight: 900;
   font-size: 24px;
-  color: #ecf0f1;
 }
 
 .header-navlist {
   padding: 0px 50px;
   float: right;
-  color: #ecf0f1;
 }
 
 .header-navlist li {

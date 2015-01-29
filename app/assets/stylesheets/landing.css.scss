@@ -23,11 +23,11 @@ section.subsublanding {
   width: 100%;
   background: black;
   opacity: 0.8;
-  top: calc(100% - 100px);
+  top: 550px;
   height: 100px;
 }
 
-.sublanding input[type="text"] {
+.subsublanding input[type="text"] {
   position: absolute;
   align: center;
   margin: auto;
@@ -39,6 +39,6 @@ section.subsublanding {
   font-size: 20px;
 }
 
-.sublanding input[type="submit"] {
+.subsublanding input[type="submit"] {
   display: none;
 }

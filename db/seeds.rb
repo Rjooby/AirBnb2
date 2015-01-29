@@ -87,6 +87,14 @@ Location.create!(
   bathroom: false,
   photo_url: "http://static1.squarespace.com/static/5285b5cbe4b0f6fc5e481099/t/528ecef7e4b019edff2ce4ed/1385090812546/IMG_0388_1.jpg")
 
+  Location.create! (
+    name: "Great spot in Honolulu",
+    camptype: "wild",
+    owner_id: 3,
+    price: 77,
+    description
+  )
+
 Request.create!(
   location_id: 1,
   requester_id: 2,
