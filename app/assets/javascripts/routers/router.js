@@ -17,7 +17,10 @@ Air.Routers.Router = Backbone.Router.extend({
     "search" : "search"
   },
 
-
+  landing: function () {
+    var view = new Air.Views.Landing({ collection: Air.locations });
+    this._swapView(view);
+  },
 
   // ------Location
 
@@ -28,6 +31,7 @@ Air.Routers.Router = Backbone.Router.extend({
   },
 
   locationsIndex: function () {
+    console.log(Air.router);
     Air.locations.fetch();
     var view = new Air.Views.LocationsIndex({ className: 'main group', collection : Air.locations });
     this._swapView(view);

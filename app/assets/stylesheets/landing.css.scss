@@ -1,0 +1,32 @@
+
+section.landing {
+  position: relative;
+  display: block;
+  height: 700px;
+}
+
+section.sublanding {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-image: image-url("waterfall.gif");
+  background-size: cover;
+  // background: #5C5C5C;
+  // opacity: 0.3;
+
+}
+
+section.subsublanding {
+  position: absolute;
+  width: 100%;
+  background: black;
+  opacity: 0.6;
+  top: calc(100% - 100px);
+  height: 100px;
+}
+
+.sublanding input[type="text"] {
+  margin: auto;
+  height: 55px;
+  width: 600px;
+}
