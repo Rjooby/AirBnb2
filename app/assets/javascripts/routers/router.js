@@ -32,6 +32,8 @@ Air.Routers.Router = Backbone.Router.extend({
 
   locationsIndex: function () {
     console.log(Air.router);
+    var callback = this.locationsIndex.bind(this);
+    if (!this._requireSignedIn(callback)){ return; }
     Air.locations.fetch();
     var view = new Air.Views.LocationsIndex({ className: 'main group', collection : Air.locations });
     this._swapView(view);
@@ -72,6 +74,17 @@ Air.Routers.Router = Backbone.Router.extend({
       callback : callback
     });
     this._swapView(view);
+  },
+
+  _requireSignedIn: function(callback){
+    if (!Air.currentUser.isSignedIn()) {
+      console.log(Air.currentUser.isSignedIn());
+      console.log("iut");
+      callback = callback || this._goHome.bind(this);
+      this.signIn(callback);
+      return false;
+    }
+
   },
 
   _requireSignedOut: function(callback){

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates :username, :password_digest, presence: true
+  validates :username, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true}
   has_attached_file :avatar, default_url: "cubone.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

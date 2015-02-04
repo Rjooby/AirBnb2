@@ -1,8 +1,8 @@
 Air.Views.LocationsIndex = Backbone.View.extend({
 
   initialize: function () {
-    this.listenTo(this.collection, "sync change reset", this.render),
-    this.listenTo(this.collection, "sync change route", this.renderListing)
+    this.listenTo(this.collection, "sync change", this.render),
+    this.listenTo(this.collection, "sync change", this.renderListing)
   },
 
   template: JST['locations/index'],
@@ -28,7 +28,7 @@ Air.Views.LocationsIndex = Backbone.View.extend({
         query: this.collection._query,
         success: function () {
           var og = that.collection.getOrFetch(1);
-          Air.map.panTo([parseFloat(og.escape("longitude")), parseFloat(og.escape("latitude"))]);
+          // Air.map.panTo([parseFloat(og.escape("longitude")), parseFloat(og.escape("latitude"))]);
 
         }
       }

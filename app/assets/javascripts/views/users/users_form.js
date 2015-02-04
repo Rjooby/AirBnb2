@@ -13,7 +13,10 @@ Air.Views.UsersForm = Backbone.View.extend({
 
   guestLogin: function(event){
     event.preventDefault();
-    var userData = {first_name: "swissC", last_name: "heez", username: "heryum", password: "feefee"}
+    var guestsNames = ["MissySwiss", "GoudaBuddha", "Cheddahead", "LotszaMozza", "TheProvoloner"]
+    var guestIndex = Math.floor(Math.random() * guestsNames.length);
+    var nameNum = Math.floor(Math.random() * 1000);
+    var userData = {first_name: "Guest", last_name: "User", username: guestsNames[guestIndex] + nameNum, password: "feefee"}
     var that = this;
     this.model.set(userData);
     this.model.save({}, {

@@ -2,7 +2,7 @@ class Api::LocationsController < Api::ApiController
 
   def index
     if (params[:query])
-      @locations = Location.near(params[:query], 100)
+      @locations = Location.near(params[:query], 1000)
       render :index
     else
       @locations = Location.all
