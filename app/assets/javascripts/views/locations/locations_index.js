@@ -43,79 +43,76 @@ Air.Views.LocationsIndex = Backbone.View.extend({
 
     var featureLayer = L.mapbox.featureLayer().addTo(Air.map);
     var geoJSON =
-  {
-    type: "FeatureCollection",
-    features: []
-  };
+    {
+      type: "FeatureCollection",
+      features: []
+    };
 
-  this.collection.each( function(location) {
+    this.collection.each( function(location) {
 
-    geoJSON.features.push({
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [
-        location.escape("longitude"),
-        location.escape("latitude")
-        ]
-      },
-      properties: {
-        title: location.escape("name"),
-        description: location.escape("description"),
-        id: location.id,
-        photo_url: location.escape("photo_url"),
-        price: location.escape("price"),
-        'marker-size': 'large',
-        'marker-color': '#00A1D6',
-        'marker-symbol': 'campsite'
-      }
+      geoJSON.features.push({
+        type: 'Feature',
+        geometry: {
+          type: 'Point',
+          coordinates: [
+          location.escape("longitude"),
+          location.escape("latitude")
+          ]
+        },
+        properties: {
+          title: location.escape("name"),
+          description: location.escape("description"),
+          id: location.id,
+          photo_url: location.escape("photo_url"),
+          price: location.escape("price"),
+          'marker-size': 'large',
+          'marker-color': '#00A1D6',
+          'marker-symbol': 'campsite'
+        }
+      });
+
+    })
+
+    featureLayer.setGeoJSON(geoJSON);
+
+
+    featureLayer.eachLayer(function(layer) {
+      var $ul = $("ul#locations-list");
+      $ul.addClass("group");
+      var $li = $('<li>');
+
+      var $a =  $('<a>');
+      var $img = $('<img>');
+      $img.attr("src", layer.feature.properties.photo_url);
+      $a.attr("href", "#/locations/" + layer.feature.properties.id);
+      $a.attr("class", "listing");
+      $a.html($img);
+
+      var $div = $('<div>');
+      $div.attr("class", "listing-info");
+
+      var $h4 = $('<h4>');
+      var $h5 = $('<h5>');
+      $h4.html(layer.feature.properties.title);
+      $h5.html("$" + layer.feature.properties.price);
+      $div.append($h4);
+
+
+      // console.log($a);
+
+      $li.html($a);
+      $li.append($h5);
+      $li.append($div);
+      $a.on("mouseenter", function(event) {
+        console.log(layer.feature.properties['marker-color'])
+        Air.map.panTo(layer.getLatLng());
+        layer.addTo(Air.map);
+      })
+      $ul.append($li);
     });
 
-  })
+    Air.map.fitBounds(featureLayer.getBounds());
 
-  featureLayer.setGeoJSON(geoJSON);
-
-
-  var markerList = document.getElementById('locations-list');
-
-  featureLayer.eachLayer(function(layer) {
-    var $ul = $("ul#locations-list");
-    $ul.addClass("group");
-    var $li = $('<li>');
-
-    var $a =  $('<a>');
-    var $img = $('<img>');
-    $img.attr("src", layer.feature.properties.photo_url);
-    $a.attr("href", "#/locations/" + layer.feature.properties.id);
-    $a.attr("class", "listing");
-    $a.html($img);
-
-    var $div = $('<div>');
-    $div.attr("class", "listing-info");
-
-    var $h4 = $('<h4>');
-    var $h5 = $('<h5>');
-    $h4.html(layer.feature.properties.title);
-    $h5.html("$" + layer.feature.properties.price);
-    $div.append($h4);
-
-
-    // console.log($a);
-
-    $li.html($a);
-    $li.append($h5);
-    $li.append($div);
-    $a.on("mouseenter", function(event) {
-      console.log(layer.feature.properties['marker-color'])
-      Air.map.panTo(layer.getLatLng());
-      layer.feature.properties['marker-color'] = "#ccc";
-      layer.addTo(Air.map);
-    })
-    $ul.append($li);
-  });
-
-  Air.map.fitBounds(featureLayer.getBounds());
-
-}
+  }
 
 });

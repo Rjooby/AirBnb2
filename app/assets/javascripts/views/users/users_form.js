@@ -7,7 +7,23 @@ Air.Views.UsersForm = Backbone.View.extend({
   template: JST['users/form'],
 
   events: {
-    "submit form": "submit"
+    "submit form": "submit",
+    "click .guest" : "guestLogin"
+  },
+
+  guestLogin: function(event){
+    event.preventDefault();
+    var userData = {first_name: "swissC", last_name: "heez", username: "heryum", password: "feefee"}
+    var that = this;
+    this.model.set(userData);
+    this.model.save({}, {
+      success: function () {
+        Air.currentUser.fetch();
+        that.collection.add(that.model, {merge: true});
+        Backbone.history.navigate("", {trigger: true});
+      }
+    })
+    console.log(userData);
   },
 
   render: function(){
@@ -22,6 +38,7 @@ Air.Views.UsersForm = Backbone.View.extend({
 
     var $form = $(event.currentTarget);
     var userData = $form.serializeJSON().user;
+    console.log(userData);
     var that = this;
 
     this.model.set(userData);
