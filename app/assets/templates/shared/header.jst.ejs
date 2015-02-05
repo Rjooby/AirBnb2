@@ -6,7 +6,6 @@
       <% if (Air.currentUser.isSignedIn()) {%>
         <li><a href="#/users/<%=Air.currentUser.id%>"><%= Air.currentUser.escape("username") %></a></li>
 
-
         <li>
           <form>
             <a href="#" id="signout">Sign Out</a>
@@ -21,4 +20,25 @@
       </ul>
 
     </nav>
+
+    <section class="modal">
+      <form class="modal-signin">
+        <label>
+          Username
+          <input type="text" name="user[username]">
+        </label>
+
+        <br>
+
+        <label>
+          Password
+          <input type="password" name="user[password]">
+        </label>
+
+        <br>
+
+        <button>Sign In</button>
+      </form>
+    </section>
+
   </header>

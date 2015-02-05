@@ -47,7 +47,8 @@
     max_occupancy: 10,
     water: false,
     bathroom: false,
-    photo_url: "http://campsitedirect.com/wp-content/uploads/2014/12/campsite-direct.jpg")
+    photo_url: "http://campsitedirect.com/wp-content/uploads/2014/12/campsite-direct.jpg"
+  )
 
 
 
@@ -61,7 +62,8 @@
     max_occupancy: 1000,
     water: true,
     bathroom: true,
-    photo_url: "https://www.coolcamping.co.uk/system/images/3485/the-secret-campsite-large.jpg")
+    photo_url: "https://www.coolcamping.co.uk/system/images/3485/the-secret-campsite-large.jpg"
+  )
 
   Location.create!(
     name: "Mill Creek Marsh",
@@ -73,8 +75,9 @@
     max_occupancy: 24,
     water: true,
     bathroom: true,
-    photo_url: "https://www.coolcamping.co.uk/system/images/525/jerusalem-farm-large.jpg")
-    #
+    photo_url: "https://www.coolcamping.co.uk/system/images/525/jerusalem-farm-large.jpg"
+    )
+
   Location.create!(
     name: "Libery State Park",
     camptype: "drive",
@@ -85,20 +88,21 @@
     max_occupancy: 1,
     water: false,
     bathroom: false,
-    photo_url: "http://static1.squarespace.com/static/5285b5cbe4b0f6fc5e481099/t/528ecef7e4b019edff2ce4ed/1385090812546/IMG_0388_1.jpg")
-
-  Location.create!(
-    name: "Great spot in Honolulu",
-    camptype: "wild",
-    owner_id: 3,
-    price: 77,
-    description: "I think there's a few beaches here. I never really checked",
-    coordinates: "Honolulu, Hawaii",
-    max_occupancy: 4,
-    water: true,
-    bathroom: false,
-    photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+    photo_url: "http://static1.squarespace.com/static/5285b5cbe4b0f6fc5e481099/t/528ecef7e4b019edff2ce4ed/1385090812546/IMG_0388_1.jpg"
   )
+
+  # Location.create!(
+  #   name: "Great spot in Honolulu",
+  #   camptype: "wild",
+  #   owner_id: 3,
+  #   price: 77,
+  #   description: "I think there's a few beaches here. I never really checked",
+  #   coordinates: "Honolulu, Hawaii",
+  #   max_occupancy: 4,
+  #   water: true,
+  #   bathroom: false,
+  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+  # )
 
   Request.create!(
     location_id: 1,
