@@ -76,8 +76,17 @@ Air.Views.LocationsIndex = Backbone.View.extend({
     })
 
     featureLayer.setGeoJSON(geoJSON);
+    var keys = [];
+    for (var k in featureLayer._layers) keys.push(k);
 
 
+    console.log(keys) ;
+    if (keys.length === 0) {
+      var $ul = $("ul#locations-list");
+      var $li = $('<li>');
+      $li.html("No nearby locations available. May I suggest New York or Hawaii?");
+      $ul.append($li);
+    } else {
     featureLayer.eachLayer(function(layer) {
       var $ul = $("ul#locations-list");
       $ul.addClass("group");
@@ -116,5 +125,6 @@ Air.Views.LocationsIndex = Backbone.View.extend({
     Air.map.fitBounds(featureLayer.getBounds());
 
   }
+}
 
 });
