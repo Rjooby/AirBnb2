@@ -14,7 +14,7 @@ window.Air = {
     Air.requests = new Air.Collections.Requests();
     Air.reviews = new Air.Collections.Reviews();
     Air.reviews.fetch();
-    this.header = new Air.Views.Header({el : "#header"});
+    Air.header = new Air.Views.Header({el : "#header", model: new Air.users.model()});
     Air.router = new Air.Routers.Router({ $rootEl : $('#content') });
     Backbone.history.start();
 
