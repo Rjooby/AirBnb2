@@ -18,6 +18,9 @@ Air.Views.Landing = Backbone.View.extend({
 
   search: function (event) {
     event.preventDefault();
+    // var callback = Air.router.locationsIndex.bind(Air.router);
+    // if (!Air.router._requireSignedIn(callback)){ return; }
+
     this.collection._query = this.$(".query").val();
     var that = this;
     this.collection.fetch({

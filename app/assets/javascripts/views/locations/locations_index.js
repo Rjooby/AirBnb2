@@ -2,7 +2,9 @@ Air.Views.LocationsIndex = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.collection, "sync change", this.render),
-    this.listenTo(this.collection, "sync change", this.renderListing)
+    this.listenTo(this.collection, "sync change", this.renderListing),
+    this.listenTo(Air.currentUser, "sync change", this.render),
+    this.listenTo(Air.currentUser, "sync change", this.renderListing)
   },
 
   template: JST['locations/index'],

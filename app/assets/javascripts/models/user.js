@@ -83,11 +83,15 @@ Air.Models.CurrentUser = Air.Models.User.extend({
       dataType: "json",
       success: function(data){
         model.clear();
+        var view = new Air.Views.Landing({ collection : Air.locations});
+        Air.router._swapView(view);
+        Backbone.history.navigate("/", {trigger: true});
       }
     });
   },
 
   fireSessionEvent: function(){
+    console.log("fire");
     if(this.isSignedIn()){
       this.trigger("signIn");
     } else {

@@ -40,6 +40,6 @@ class Api::LocationsController < Api::ApiController
 
   private
   def location_params
-    params.require(:location).permit(:name, :photo, :camptype, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)
+    params.require(:location).permit(:name, :photo, :photo_url, :camptype, :price, :description, :coordinates, :max_occupancy, :water, :bathroom)
   end
 end

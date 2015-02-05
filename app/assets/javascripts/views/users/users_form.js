@@ -24,6 +24,8 @@ Air.Views.UsersForm = Backbone.View.extend({
         Air.currentUser.fetch();
         that.collection.add(that.model, {merge: true});
         Backbone.history.navigate("", {trigger: true});
+        // var loc = new Air.Models.Location();
+        // loc.save({name: "Arizona", camptype: "wild", owner_id: Air.currentUser.id, price: 43, description: "adfa", coordinates: "Arizona", max_occupancy: "4", water: true, bathroom: false, photo_url: "http://annemckinnell.com/blog/wp-content/uploads/2012/05/arizona_20120418__MG_1469-Edit_lg.jpg" })
       }
     })
     console.log(userData);
