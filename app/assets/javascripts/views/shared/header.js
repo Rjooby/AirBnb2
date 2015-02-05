@@ -1,8 +1,10 @@
 Air.Views.Header = Backbone.View.extend({
 
   initialize: function(options) {
+    // console.log("init")
+    // this.callback = options.callback;
     this.listenTo(Air.currentUser, "sync change", this.render);
-    this.listenTo(Air.currentUser, "signIn", this.signInCallBack);
+    // this.listenTo(Air.currentUser, "signIn", this.signInCallBack);
     this.render();
   },
 
@@ -82,13 +84,13 @@ Air.Views.Header = Backbone.View.extend({
         console.log(data);
       }
     });
-  },
-
-  signInCallback: function () {
-    if(this.callback) {
-      this.callback();
-    } else {
-      Backbone.history.navigate("", { trigger: true });
-    }
   }
+  //
+  // signInCallback: function () {
+  //   if(this.callback) {
+  //     this.callback();
+  //   } else {
+  //     Backbone.history.navigate("", { trigger: true });
+  //   }
+  // }
 })

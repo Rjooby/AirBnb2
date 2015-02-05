@@ -70,10 +70,12 @@ Air.Routers.Router = Backbone.Router.extend({
 
   signIn: function (callback) {
     if (!this._requireSignedOut(callback)) { return; }
-    var view = new Air.Views.SignIn({
+
+    var view = new Air.Views.SignIn2({
       callback : callback
     });
-    this._swapView(view);
+    this.$rootEl.append(view.render().$el);
+
   },
 
   _requireSignedIn: function(callback){
@@ -115,6 +117,8 @@ Air.Routers.Router = Backbone.Router.extend({
     this.currentView && this.currentView.remove();
     this.currentView = view;
     this.$rootEl.html(view.render().$el);
-  }
+  },
+
+
 
 });
