@@ -8,9 +8,15 @@
 
 
   User.create!(username: "Ron", password: "ronron", avatar_url: "http://img3.wikia.nocookie.net/__cb20140410195936/pokemon/images/archive/e/e1/20150101093317!025Pikachu_OS_anime_4.png")
-  User.create!(username: "dood", password: "doodle")
-  User.create!(username: "algore", password: "president")
-  User.create!(username: "Janky", password: "yoyoyo")
+  User.create!(username: "dood", password: "doodle", avatar_url: "http://media.moddb.com/images/members/3/2475/2474536/ao_Sleepy_Kitties.png")
+  User.create!(username: "algore", password: "president", avatar_url: "http://oyster.ignimgs.com/wordpress/stg.ign.com/2012/09/pokemon_bulbasaur_desktop_1057x1132_wallpaper-369004-610x653.png")
+  User.create!(username: "Janky", password: "yoyoyo", avatar_url: "http://www.dltk-kids.com/pokemon/adoptions/122.gif")
+  User.create!(username: "Antone", password: "achang". avatar_url: "http://img.pokemondb.net/artwork/mudkip.jpg")
+  User.create!(username: "DrOsey", password: "bbaall". avatar_url: "http://img2.wikia.nocookie.net/__cb20140810044703/pokemon/images/c/ce/133Eevee_BW_anime.png")
+  User.create!(username: "Jstew", password: "daysho". avatar_url: "http://pokiidex.com/Content/Images/043_oddish.png")
+
+
+
 
   Location.create!(
     name: "Central Park Tunnel",
@@ -49,8 +55,6 @@
     bathroom: false,
     photo_url: "http://campsitedirect.com/wp-content/uploads/2014/12/campsite-direct.jpg"
   )
-
-
 
   Location.create!(
     name: "Great access to New York City",
@@ -91,6 +95,71 @@
     photo_url: "http://static1.squarespace.com/static/5285b5cbe4b0f6fc5e481099/t/528ecef7e4b019edff2ce4ed/1385090812546/IMG_0388_1.jpg"
   )
 
+  Location.create!(
+    name: "Great spot in Honolulu",
+    camptype: "wild",
+    owner_id: 3,
+    price: 77,
+    description: "I think there's a few beaches here. I never really checked",
+    coordinates: "Honolulu, Hawaii",
+    max_occupancy: 21,
+    water: true,
+    bathroom: false,
+    photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+  )
+
+  Location.create!(
+    name: "A place called Makawao?",
+    camptype: "wild",
+    owner_id: 5,
+    price: 77,
+    description: "I decided to buy this place but I've never actually been there yet. I guess someone should enjoy it.",
+    coordinates: "3351 Iolani St. Makawao, HI 96768",
+    max_occupancy: 4,
+    water: true,
+    bathroom: false,
+    photo_url: "http://static1.squarespace.com/static/514e40ffe4b0e29595fe765d/t/543accbbe4b08c0fddfb2c36/1413139648851/"
+  )
+
+  Location.create!(
+    name: "Kula Forest Reserve",
+    camptype: "wild",
+    owner_id: 2,
+    price: 23,
+    description: "Beautiful island getaway. Almost too popular recently. Actually I shouldn't even post this up. Not like I need the money.",
+    coordinates: "Kula, Hawaii",
+    max_occupancy: 43,
+    water: true,
+    bathroom: false,
+    photo_url: "http://www.hawaiiboundvacations.com/wp-content/uploads/2014/09/Oceanfront-Paradise-Maui-Villa-sunset-balcony.jpg"
+  )
+
+  Location.create!(
+    name: "Hilo Watershed Forest Reserve",
+    camptype: "drive",
+    owner_id: 7,
+    price: 34,
+    description: "This one's not as nice as the other islands, but I assure you, it's still pretty cool. Don't mind the bugs.",
+    coordinates: "Honolulu, Hawaii",
+    max_occupancy: 4,
+    water: false,
+    bathroom: false,
+    photo_url: "http://www.hawaiiconservation.org/images/uploads/pages/Jan19_flyover_198.JPG"
+  )
+
+  Location.create!(
+    name: "Palaau State Park",
+    camptype: "wild",
+    owner_id: 3,
+    price: 77,
+    description: "It's pretty close to the airport but I think you'll still have a good time. Great access to the water and great tent platforms.",
+    coordinates: "Highway 47 Ho'olehua, HI 96729",
+    max_occupancy: 4,
+    water: true,
+    bathroom: false,
+    photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+  )
+
   # Location.create!(
   #   name: "Great spot in Honolulu",
   #   camptype: "wild",
@@ -103,6 +172,46 @@
   #   bathroom: false,
   #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
   # )
+  #
+  # Location.create!(
+  #   name: "Great spot in Honolulu",
+  #   camptype: "wild",
+  #   owner_id: 3,
+  #   price: 77,
+  #   description: "I think there's a few beaches here. I never really checked",
+  #   coordinates: "Honolulu, Hawaii",
+  #   max_occupancy: 4,
+  #   water: true,
+  #   bathroom: false,
+  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+  # )
+  #
+  # Location.create!(
+  #   name: "Great spot in Honolulu",
+  #   camptype: "wild",
+  #   owner_id: 3,
+  #   price: 77,
+  #   description: "I think there's a few beaches here. I never really checked",
+  #   coordinates: "Honolulu, Hawaii",
+  #   max_occupancy: 4,
+  #   water: true,
+  #   bathroom: false,
+  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+  # )
+  #
+  # Location.create!(
+  #   name: "Great spot in Honolulu",
+  #   camptype: "wild",
+  #   owner_id: 3,
+  #   price: 77,
+  #   description: "I think there's a few beaches here. I never really checked",
+  #   coordinates: "Honolulu, Hawaii",
+  #   max_occupancy: 4,
+  #   water: true,
+  #   bathroom: false,
+  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
+  # )
+
 
   Request.create!(
     location_id: 1,
