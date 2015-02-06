@@ -11,9 +11,9 @@
   User.create!(username: "dood", password: "doodle", avatar_url: "http://media.moddb.com/images/members/3/2475/2474536/ao_Sleepy_Kitties.png")
   User.create!(username: "algore", password: "president", avatar_url: "http://oyster.ignimgs.com/wordpress/stg.ign.com/2012/09/pokemon_bulbasaur_desktop_1057x1132_wallpaper-369004-610x653.png")
   User.create!(username: "Janky", password: "yoyoyo", avatar_url: "http://www.dltk-kids.com/pokemon/adoptions/122.gif")
-  User.create!(username: "Antone", password: "achang". avatar_url: "http://img.pokemondb.net/artwork/mudkip.jpg")
-  User.create!(username: "DrOsey", password: "bbaall". avatar_url: "http://img2.wikia.nocookie.net/__cb20140810044703/pokemon/images/c/ce/133Eevee_BW_anime.png")
-  User.create!(username: "Jstew", password: "daysho". avatar_url: "http://pokiidex.com/Content/Images/043_oddish.png")
+  User.create!(username: "Antone", password: "achang", avatar_url: "http://img.pokemondb.net/artwork/mudkip.jpg")
+  User.create!(username: "DrOsey", password: "bbaall", avatar_url: "http://img2.wikia.nocookie.net/__cb20140810044703/pokemon/images/c/ce/133Eevee_BW_anime.png")
+  User.create!(username: "Jstew", password: "daysho", avatar_url: "http://pokiidex.com/Content/Images/043_oddish.png")
 
 
 

@@ -10,7 +10,7 @@ Air.Views.LocationsIndex = Backbone.View.extend({
   template: JST['locations/index'],
 
   events: {
-    "click .submit" : "search"
+    "submit form.search-listings" : "search"
   },
 
   render: function () {

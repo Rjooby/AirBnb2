@@ -39,6 +39,18 @@
 .index-listing-form {
   padding: 20px;
   border-bottom: 1px solid #E0E0E0;
+  border-top: 1px solid #E0E0E0;
+}
+
+.index-listing-form input[type="text"] {
+  height: 44px;
+  width: 100%;
+  font-size: 21px;
+  padding: 0 3px 0 3px;
+}
+
+.index-listing-form input[type="submit"] {
+  display: none;
 }
 
 .index-listing-locations {
@@ -50,17 +62,17 @@
   font-size: 24px;
   text-align: center;
   padding: 8px 0 0 0;
-
 }
 
 #locations-list {
+  color: #2c3e50;
   width: 950px;
 }
 
 #locations-list > li {
   position: relative;
-  padding: 15px;
-  width: 440px;
+  padding: 8px 17px 0px 10px;
+  width: 45%;
   float: left;
 }
 
@@ -68,15 +80,18 @@
   position: absolute;
   top: 60%;
   font-size: 20px;
+  padding: 9px 15px;
   color: #ecf0f1;
   background:#7f8c8d;
-  padding: 9px 15px;
+
   opacity: 66%;
-  left: 15px;
+  left: 10px;
+  border-radius: 0 3px 3px 0;
 }
 
 #locations-list {
   margin:  0px 20px 20px 20px;
+  padding: 14px 0 0 0;
 }
 
 #locations-list > li > div {
@@ -122,7 +137,7 @@ section.showmap{
 
 .location-show-header {
   display:block;
-  height: 640px;
+  height: 580px;
   overflow: hidden;
 }
 
@@ -159,6 +174,15 @@ section.details {
   float: left;
   width: 300px;
   padding: 30px;
+}
+
+.location-request label{
+  display: block;
+  padding: 4px 0 4px 0;
+}
+
+.location-request input{
+  // padding: 4px;
 }
 
 div.info {

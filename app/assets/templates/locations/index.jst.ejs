@@ -6,27 +6,15 @@
   <section class="index-listings">
     <main class="index-listing-form">
       <!-- <form class="search"> -->
-        <input type="text" class="query" value="<%= locations._query %>">
-        <!-- <label for=""> Where?
-          <select name="where">
-            <option value="NYC"> New York </option>
-            <option value="SF"> San Francisco </option>
-            <option value="SEOUL"> Seoul </option>
-            <option value="BALI"> Bali </option>
-          </select>
-
-        </label>
-
-         <label>When?</label>
-        <input type="date" name="start" value="">
-        to
-        <input type="date" name="end" value=""> -->
+      <form class="search-listings">
+        <input type="text" class="query" value="<%= locations._query %>" placeholder="Where will you explore?">
         <input type="submit" class="submit">
+
+      </form>
       <!-- </form> -->
 
     </main>
     <main class="index-listing-locations">
-      <h4>Available locations</h4>
       <ul id='locations-list'></ul>
 
     </main>
