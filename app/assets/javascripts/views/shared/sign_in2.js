@@ -8,6 +8,7 @@ Air.Views.SignIn2 = Backbone.View.extend({
 
   events: {
     "submit form": "signIn",
+    "click .guest" : "guestLogin"
 
   },
 
@@ -42,6 +43,27 @@ Air.Views.SignIn2 = Backbone.View.extend({
     } else {
       Backbone.history.navigate("#/locations", { trigger: true });
     }
+  },
+
+  guestLogin: function(event){
+    event.preventDefault();
+    var guestsNames = ["MissySwiss", "GoudaBuddha", "Cheddahead", "LotszaMozza", "TheProvoloner"]
+    var guestIndex = Math.floor(Math.random() * guestsNames.length);
+    var nameNum = Math.floor(Math.random() * 1000);
+    var userData = {first_name: "Guest", last_name: "User", username: guestsNames[guestIndex] + nameNum, password: "feefee"}
+    var that = this;
+    this.model.set(userData);
+    this.model.save({}, {
+      success: function () {
+        Air.currentUser.fetch();
+        Air.users.add(that.model, {merge: true});
+        Backbone.history.navigate("", {trigger: true});
+        // var loc = new Air.Models.Location();
+        // loc.save({name: "Arizona", camptype: "wild", owner_id: Air.currentUser.id, price: 43, description: "adfa", coordinates: "Arizona", max_occupancy: "4", water: true, bathroom: false, photo_url: "http://annemckinnell.com/blog/wp-content/uploads/2012/05/arizona_20120418__MG_1469-Edit_lg.jpg" })
+      }
+    })
+    this.model = new Air.users.model();
+    console.log(userData);
   }
 
 });
