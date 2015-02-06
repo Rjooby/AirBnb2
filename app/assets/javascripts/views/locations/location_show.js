@@ -7,7 +7,7 @@ Air.Views.LocationShow = Backbone.View.extend({
   },
 
   events: {
-    "submit location-request" : "requestLocation",
+    "click .submit-request" : "requestLocation",
     "click .submit-review-form" : "addReview",
     "click .delete-review" : "deleteReview"
   },
@@ -50,7 +50,7 @@ Air.Views.LocationShow = Backbone.View.extend({
   requestLocation: function (event) {
     event.preventDefault();
     var request = new Air.Models.Request();
-    var attrs = this.$el.find("form.request").serializeJSON();
+    var attrs = this.$el.find("form.location-request").serializeJSON();
     console.log(attrs);
     var that = this;
 

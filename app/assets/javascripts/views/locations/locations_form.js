@@ -1,5 +1,6 @@
 Air.Views.LocationForm = Backbone.View.extend({
   tagName: 'form',
+  id: 'location-form',
   template: JST['locations/form'],
 
   events: {

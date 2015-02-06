@@ -120,9 +120,9 @@ div.modal-content {
   position: absolute;
   z-index: 1000;
   top: 300px;
-  left: 50%;
-  width: 400px;
-  padding: 50px;
+  left: 58%;
+  width: 240px;
+  padding: 43px;
   margin-left: -250px;
   transform: translateY(-50%);
   background: white;
@@ -131,4 +131,8 @@ div.modal-content {
 
 a.camp {
   color: white;
+}
+
+input.password{
+  margin-left: 4px;
 }

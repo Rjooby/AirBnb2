@@ -215,3 +215,20 @@ ul.reviews{
   padding-bottom: 15px;
   border-bottom: 1px solid #ccc;
 }
+
+//locations form
+
+form#location-form {
+  text-align: left;
+  margin: auto;
+  width: 450px;
+}
+
+form#location-form label {
+  display: block;
+}
+
+h2.location-form {
+  text-align: center;
+  font-size: 24px;
+}

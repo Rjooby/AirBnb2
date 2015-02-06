@@ -16,7 +16,8 @@ Air.Views.RequestsIndex = Backbone.View.extend({
   approveRequest: function (event) {
     event.preventDefault();
     var $target = $(event.currentTarget);
-    var request = this.collection.get($target.attr("data-id"));
+    var request = this.collection.getOrFetch($target.attr("data-id"));
+    console.log(request);
     var that = this;
     request.save({status: "APPROVED"}, {
       success: function() {
@@ -29,7 +30,7 @@ Air.Views.RequestsIndex = Backbone.View.extend({
   denyRequest: function (event) {
     event.preventDefault();
     var $target = $(event.currentTarget);
-    var request = this.collection.get($target.attr("data-id"));
+    var request = this.collection.getOrFetch($target.attr("data-id"));
     var that = this;
     request.save({status: "DENIED"}, {
       success: function() {

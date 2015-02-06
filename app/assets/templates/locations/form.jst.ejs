@@ -1,75 +1,63 @@
+<br>
+<br>
+<h2 class="location-form">Share you camp to the world</h2>
 
+<table>
+  <tr>
+    <td>Name</td>
+    <td><input type="text" name="location[name]" value="<%= location.name %>"></td>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td>
+      <label><input
+        type="radio"
+        name="location[camptype]"
+        value="wild"
+        <%= location.camptype == "wild" ? "checked" : "" %>>
+        Wilderness</label>
+      <label><input
+        type="radio"
+        name="location[camptype]"
+        value="drive"
+        <%= location.camptype == "drive" ? "checked" : "" %> >
+        Drive-In </label>
 
-  <form>
+    </td>
+  </tr>
+  <tr>
+    <td>Maximum number of people</td>
+    <td><input type="number" name="location[max_occupancy]" value="<%= location.max_occupancy %>"></td>
+  </tr>
+  <tr>
+    <td>Price per Night</td>
+    <td><input type="number" name="location[price]" value="<%=location.price%>"></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td><textarea name="location[description]" rows="8" cols="40"><%= location.description %></textarea></td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td><input type="string" name="location[coordinates]" value="<%= location.coordinates %>"></td>
+  </tr>
+  <tr>
+    <td>Water?</td>
+    <td><input type="checkbox" name="location[water]" value="true" <%= location.water ? "checked?" : ""%>></td>
+  </tr>
+  <tr>
+    <td>Bathroom?</td>
+    <td><input type="checkbox" name="location[bathroom]" value="true" <%= location.water ? "checked?" : ""%>></td>
+  </tr>
+  <tr>
+    <td>Photo</td>
+    <td><input type="file" name="location[photo]" id="input-url-photo"></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><input type="submit" value="Submit" class="formsubmit"></td>
+  </tr>
 
-  <label for="location_name"> Name <br>
-  <input type="text" name="location[name]" value="<%= location.name %>">
-  </label>
+  <img src="<%= location.escape("photo_url") %>" id="preview-location-photo" width="400" />
 
-  <br><br>
-
-  <label for="location_camptype"> Type of Camping <br>
-    <label><input
-      type="radio"
-      name="location[camptype]"
-      value="wild"
-      <%= location.camptype == "wild" ? "checked" : "" %>>
-      Wilderness</label> <br>
-    <label><input
-      type="radio"
-      name="location[camptype]"
-      value="drive"
-      <%= location.camptype == "drive" ? "checked" : "" %> >
-      Drive-In </label>
-  </label>
-
-  <br><br>
-
-  <label for="location_maxocc">Maximum number of people
-    <input type="number" name="location[max_occupancy]" value="<%= location.max_occupancy %>">
-  </label>
-
-  <br><br>
-
-  <label for="location_price">Price per Night
-    <!-- <input type="range" name="location[price]" value="<%= location.price %>" data-show-value="true" min="0" max="100" > -->
-    <input type="number" name="location[price]" value="<%=location.price%>">
-  </label>
-
-  <br><br>
-
-  <label for=location_description>Write a short description of your destination <br>
-    <textarea name="location[description]" rows="8" cols="40"><%= location.description %></textarea>
-  </label>
-
-  <br><br>
-
-  <label for="location_coordinates">Address <br>
-    <input type="string" name="location[coordinates]" value="<%= location.coordinates %>">
-  </label>
-
-  <br><br>
-
-  <label for="location_water">Is there access to water?
-    <input type="checkbox" name="location[water]" value="true" <%= location.water ? "checked?" : ""%>>
-  </label>
-
-  <br><br>
-
-  <label for="location_bathroom">Is there access to a operating bathroom?
-    <input type="checkbox" name="location[bathroom]" value="true" <%= location.water ? "checked?" : ""%>>
-  </label>
-
-  <br><br>
-
-  <label for="location_photo"> Share a photo of your campgrounds
-    <input type="file" name="location[photo]" id="input-url-photo">
-  </label>
-
-  <img src="<%= location.escape("photo_url") %>" id="preview-location-photo" width="200" />
-
-  <br><br>
-
-
-  <input type="submit" value="Submit" class="formsubmit">
-  </form>
+</table>
