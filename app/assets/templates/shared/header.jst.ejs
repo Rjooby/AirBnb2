@@ -28,20 +28,22 @@
         <form class="modal-signin">
           <label>
             Username
-            <input type="text" name="user[username]">
+            <input type="text" name="user[username]" value="<%= user.escape("username") %>">
           </label>
 
           <br>
 
           <label>
             Password
-            <input type="password" name="user[password]">
+            <input type="password" name="user[password]" value="<%= user.escape("password") %>">
           </label>
 
           <br>
 
           <input type="submit" id="signin" value="submit">
         </form>
+
+        <button class='guest'> Guest Login </button>
 
       </div>
     </section>
@@ -72,16 +74,14 @@
 
           <label>
             Username
-            <input type="text" name="user[username]"
-            value="<%= user.escape("email") %>">
+            <input type="text" name="user[username]">
           </label>
 
           <br>
 
           <label>
             Password
-            <input type="password" name="user[password]"
-            value="<%= user.escape("password") %>">
+            <input type="password" name="user[password]">
           </label>
 
           <br>
@@ -90,7 +90,6 @@
 
         </form>
 
-        <button class='guest'> Guest Login </button>
 
       </div>
 
