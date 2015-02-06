@@ -1,9 +1,9 @@
 <header class="location-show-header">
-  <img src="<%= location.escape("photo_url") %>">
+<img src="<%= location.escape("photo_url") %>">
 </header>
 
   <section class="location-show-leading group">
-    <img class="leading-pic" src="<%= location.escape("owner_avatar") %>" />
+      <a href="#/users/<%=location.escape("owner_id")%>"><img class="leading-pic" src="<%= location.escape("owner_avatar") %>" /></a>
     <div class="leading-text">
       <h3> <%= location.escape("name") %> </h3>
       <h4> <%= location.escape("coordinates") %></h3>
@@ -56,10 +56,10 @@
   <% if ((location.reviews()).length === 0) {  %>
     <h4> No reviews yet, be the first! </h4>
   <%} else {%>
-  <ul>
+  <ul class="reviews">
     <% location.reviews().each(function(review){  %>
     <li><%=review.escape("body") %>
-      <i><%= review.escape("created_at") %></i>
+      <i>- <%= review.escape("created_at") %> ago</i>
       <% if (location.current().id == review.escape("reviewer_id")){ %>
         <button class="delete-review" data-id="<%= review.id %>">Delete</button>
       <% } %>

@@ -22,6 +22,6 @@ json.reviews @location.reviews do |review|
   json.body review.body
   json.reviewer_id review.reviewer_id
   json.location_id review.location_id
-  json.created_at review.created_at
+  json.created_at time_ago_in_words(review.created_at)
   json.updated_at review.updated_at
 end
