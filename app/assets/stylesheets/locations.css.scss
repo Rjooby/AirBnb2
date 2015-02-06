@@ -136,13 +136,15 @@ section.showmap{
 }
 
 .location-show-header {
+  position: relative;
   display:block;
-  height: 580px;
+  height: 450px;
   overflow: hidden;
 }
 
 .location-show-header > img {
-  top: -20%;
+  position:absolute;
+  top: -35%;
   width: 100%;
 }
 

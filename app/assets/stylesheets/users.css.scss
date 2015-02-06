@@ -1,3 +1,43 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+img.avatar-prev {
+  display:block;
+  position: relative;
+  margin:auto;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin: 10px auto 10px auto;
+  background: white;
+}
+
+div.avatar-container{
+  display:block;
+  background: #ccc;
+}
+
+table{
+  margin: auto;
+}
+
+table.requests td{
+  padding: 0 16px;
+}
+
+div.user-content{
+  text-align: center;
+}
+
+td.requestslink{
+  color: blue;
+}
+
+a.listinglink {
+  color: blue;
+}
+
+label.avatarchange{
+  position: absolute;
+}

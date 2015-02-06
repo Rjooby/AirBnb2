@@ -1,59 +1,59 @@
 
+<div class="avatar-container">
+  <img class="avatar-prev" src="<%= user.escape("avatar_url") %>" width="250" id="preview-user-avatar">
+</div>
+
+<br>
 <form>
-
-  <label>
-    <h4> Change Your Avatar </h4>
-    <input type="file" name="user[avatar]" id="input-url-avatar">
+  <label class="avatarchange"> Change your avatar <br>
+    <input type="file" name="user[avatar]" id="input-url-avatar"> <br>
+  <input type="submit" value="confirm">
   </label>
-  <input type="submit">
 </form>
+<div class="user-content">
+  <h3> <%= user.escape("username") %>'s posted locations </h3>
 
-<br>
+  <table class="locations">
+    <% user.locations().each(function (location){  %>
 
-<img src="<%= user.escape("avatar_url") %>" width="50" id="preview-user-avatar">
+      <tr>
+        <td><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a><td>
+        <% if (user.get("current").id == location.get("owner_id")){  %>
 
-<br>
+         <td class="requestslink"><a href="#/locations/<%=location.id%>/requests">Requests</a><td>
+         <td><button class="delete-location" data-id="<%= location.id %>">Delete</button></td>
+         <td> <a href="#/locations/<%= location.id %>/edit">Edit</a> </td>
+         <% } %>
+       </tr>
 
-<h3> Your posted locations </h3>
+    <% }); %>
+  </table>
 
-<table>
-  <% user.locations().each(function (location){  %>
+  <% if(!!user.get("current") && user.get("current").id == user.id) {  %>
+  <br>
+  <h3> Your requests </h3>
 
+  <table class="requests">
     <tr>
-      <td><a href="#/locations/<%=location.id%>"> <%= location.escape("name") %></a><td>
-      <% if (user.get("current").id == location.get("owner_id")){  %>
+      <th> Location </th>
+      <th> Check-in date </th>
+      <th> Check-out date </th>
+      <th> Status </th>
+    </tr>
+    <% user.booking_requests().each(function (request){  %>
+    <tr>
 
-       <td><a href="#/locations/<%=location.id%>/requests">Requests</a><td>
-       <td><button class="delete-location" data-id="<%= location.id %>">Delete</button></td>
-       <td> <a href="#/locations/<%= location.id %>/edit">Edit</a> </td>
-       <% } %>
-     </tr>
+      <td><a href="#/locations/<%=request.get("location_id")%>"> <%=Air.locations.getOrFetch(request.get("location_id")).escape("name") %></a> </td>
+      <td><%=request.escape("start_date")%></td>
+      <td><%=request.escape("end_date")%></td>
+      <td><%=request.escape("status") %></td>
+    </tr>
 
-  <% }); %>
-</table>
-
-<br>
-
-<h3> Your requests </h3>
-
-<table>
-  <tr>
-    <th> Location </th>
-    <th> Check-in date </th>
-    <th> Check-out date </th>
-    <th> Status </th>
-  </tr>
-  <% user.booking_requests().each(function (request){  %>
-  <tr>
-
-    <td><a href="#/locations/<%=request.get("location_id")%>"> <%=Air.locations.getOrFetch(request.get("location_id")).escape("name") %></a> </td>
-    <td><%=request.escape("start_date")%></td>
-    <td><%=request.escape("end_date")%></td>
-    <td><%=request.escape("status") %></td>
-  </tr>
-
-  <% }); %>
-</table>
-
-<br>
-<a href="#"> Back to Listing </a>
+    <% }); %>
+  </table>
+  <% } %>
+  <br>
+  <br>
+  <br>
+<a class="listinglink" href="#/locations"> Back to Listing </a>
+</div>

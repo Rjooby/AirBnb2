@@ -15,7 +15,6 @@ Air.Views.UserShow = Backbone.View.extend({
   },
 
   render: function () {
-    console.log(this.model);
     var content = this.template({ user : this.model });
     this.$el.html(content);
     return this;
@@ -60,7 +59,6 @@ Air.Views.UserShow = Backbone.View.extend({
   deleteLocation: function (event) {
     event.preventDefault();
     $target = $(event.currentTarget);
-    console.log($target);
     var location2 = this.model.locations().get($target.attr("data-id"));
     location2.destroy();
     var location = Air.locations.get($target.attr("data-id"));
