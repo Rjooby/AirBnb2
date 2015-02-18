@@ -8,7 +8,8 @@ Air.Views.SignIn2 = Backbone.View.extend({
 
   events: {
     "submit form": "signIn",
-    "click .guest" : "guestLogin"
+    "click .guest" : "guestLogin",
+    "click .closemodal" : "closeSignInModal"
 
   },
 
@@ -35,6 +36,10 @@ Air.Views.SignIn2 = Backbone.View.extend({
         that.remove();
       }
     });
+  },
+
+  closeSignInModal: function () {
+    $(".modal").removeClass('active');
   },
 
   signInCallback: function(event){

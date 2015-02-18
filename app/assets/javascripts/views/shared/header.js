@@ -30,11 +30,11 @@ Air.Views.Header = Backbone.View.extend({
   },
 
   openSignInModal: function () {
-    $(".modal").addClass("active");
+    // $(".modal").addClass("active");
+    Air.router.signIn();
   },
 
   closeSignInModal: function () {
-    console.log("yto");
     $(".modal").removeClass('active');
   },
 

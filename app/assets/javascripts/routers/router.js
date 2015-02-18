@@ -70,7 +70,6 @@ Air.Routers.Router = Backbone.Router.extend({
 
   signIn: function (callback) {
     if (!this._requireSignedOut(callback)) { return; }
-    console.log("asdfas");
     var model = new Air.users.model();
     var view = new Air.Views.SignIn2({
       callback : callback,
