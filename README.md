@@ -1,42 +1,7 @@
-#Air BnB Clone
+Sleeping BnT is a destination sharing and booking site that attempts to replicate the functionality and visual design of AirBnb. 
 
-* User authentication
-* Models: User, Booking Request, Location, Session
-* CRUD of Models
-* Index Show and Create Views for Locations
-* Search form and filter results
-* Create and Destroy User
-* Map and Search API
+Features include: User account creation and authentication; CRUD functionality for users to submit their destinations as well as booking requests and reviews; Picture uploads for user avatars and destination photos; Interactive map that displays search results and highlights location details;
 
-======MVP
+Technologies used include: Ruby on Rails, Javascript, Backbone.js, jQuery, HTML, CSS, ActiveRecord, MapBox API
 
-* User review and comments
-* Deployment instructions
-* ...
 
-## Models
-
-# User
-
-+ username
-+ password
-+ session
-
-# Location
-
-+ name
-+ coordinates
-+ Price
-+ Type (Cabin, DriveIn, Wilderness)
-+ Description
-
-# Request
-
-+ Date range
-+ location_id
-+ user_id
-+ booking_status
-
-## Session
-
-+ session_token
