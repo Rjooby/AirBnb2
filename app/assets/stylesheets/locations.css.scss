@@ -232,3 +232,13 @@ h2.location-form {
   text-align: center;
   font-size: 24px;
 }
+
+@media (max-width: 1000px) {
+  section.index-map {
+    display:none;
+  }
+
+  section.index-listings {
+    width: 100%;
+  }
+}
