@@ -92,6 +92,7 @@
 #locations-list {
   margin:  0px 20px 20px 20px;
   padding: 14px 0 0 0;
+  width: 100%;
 }
 
 #locations-list > li > div {
@@ -152,7 +153,8 @@ section.showmap{
 .location-show-leading {
   display: block;
   border-bottom: 1px solid #ccc;
-  padding: 10px 0 0 300px;
+  padding: 10px 0 0 0px;
+  margin: 0 0 0 300px;
 }
 
 .location-show-info {
@@ -244,7 +246,12 @@ h2.location-form {
 }
 
 @media (max-width: 700px) {
-  ul$locations-list > li {
+
+  ul#locations-list {
+    width: 460px;
+  }
+
+  ul#locations-list > li {
     width: 440px;
   }
 }
