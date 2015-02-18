@@ -17,4 +17,9 @@ Sleeping BnT is a destination sharing and booking site that attempts to replicat
 * ActiveRecord
 * MapBox API
 
+###Future improvements
+* OmniAuth for Twitter and Facebook
+* Filter location searches through price and availability
+* Allow multiple pictures for each location (currently limited to one).
+
 
