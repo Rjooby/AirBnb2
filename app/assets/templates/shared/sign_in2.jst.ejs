@@ -3,19 +3,22 @@
     <!-- <span class="closemodal">&times;</span> -->
 
     <form class="modal-signin">
-      <label>
-        Username
-        <input type="text" name="user[username]">
-      </label>
-      <br>
-      <label>
-        Password
-        <input class="password" type="password" name="user[password]">
-      </label>
-      <br>
-      <input type="submit" id="signin" value="submit">
+      <table>
+        <tr>
+          <td>Username</td>
+          <td><input type="text" name="user[username]"><td>
+        </tr>
+        <tr>
+          <td>Password</td>
+          <td><input class="password" type="password" name="user[password]"></td>
+        </tr>
+        <tr>
+          <td><input type="submit" id="signin" value="submit"></td>
+          <td><button class='guest'> Guest Login </button></td>
+        </tr>
+      </table>
     </form>
-    <button class='guest'> Guest Login </button>
+
   </div>
 
   <div class="modal-screen closemodal"></div>

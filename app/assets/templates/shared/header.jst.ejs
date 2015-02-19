@@ -21,6 +21,7 @@
 
     </nav>
 
+    <!-- moved to its own view
     <section class="modal">
       <div class="modal-content">
         <span class="closemodal">&times;</span>
@@ -46,45 +47,35 @@
         <button class='guest'> Guest Login </button>
 
       </div>
-    </section>
+    </section> -->
 
     <section class="modal2">
       <div class="modal-content">
-        <!-- <span class="closemodal2">&times;</span> -->
-
-        <h2>Sign Up</h2>
-
         <form class="modal-signup">
-
-          <label>
-            First Name
-            <input type="text" name="user[first_name]"
-            value="<%= user.escape("first_name") %>">
-          </label>
-
-          <br>
-
-          <label>
-            Last Name
-            <input type="text" name="user[last_name]"
-            value="<%= user.escape("last_name") %>">
-          </label>
-
-          <br>
-
-          <label>
-            Username
-            <input type="text" name="user[username]">
-          </label>
-
-          <br>
-          <label>
-            Password
-            <input type="password" name="user[password]">
-          </label>
-          <br>
-          <input type="submit" value="Create Account">
+          <table>
+            <tr>
+              <td>First Name</td>
+              <td><input type="text" name="user[first_name]" value="<%= user.escape("first_name") %>"></td>
+            </tr>
+            <tr>
+              <td>Last Name</td>
+              <td><input type="text" name="user[last_name]" value="<%= user.escape("last_name") %>"></td>
+            </tr>
+            <tr>
+              <td>Username</td>
+              <td><input type="text" name="user[username]"></td>
+            </tr>
+            <tr>
+              <td>Password</td>
+              <td><input type="password" name="user[password]"></td>
+            </tr>
+            <tr>
+              <td><input type="submit" value="Create Account"></td>
+            </tr>
+          </table>
         </form>
+
+
       </div>
       <div class="modal-screen closemodal2"></div>
     </section>

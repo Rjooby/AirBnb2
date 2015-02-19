@@ -36,6 +36,10 @@ ul {
   list-style: none;
 }
 
+form {
+  font-family: "Lato", sans-serif;
+}
+
 .group:after {
   content: "";
   display: block;
@@ -147,9 +151,9 @@ a.signinmodal, a.signupmodal {
   cursor: pointer;
 }
 
-input.password{
+/*input.password{
   margin-left: 4px;
-}
+}*/
 
 #loading {
   position:fixed;
