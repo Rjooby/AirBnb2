@@ -3,7 +3,7 @@ Air.Views.LocationForm = Backbone.View.extend({
   template: JST['locations/form'],
 
   events: {
-    "click .formsubmit" : "submit",
+    "submit form#location-form" : "submit",
     "change #input-url-photo" : "fileInputChange"
   },
 
@@ -37,7 +37,8 @@ Air.Views.LocationForm = Backbone.View.extend({
 
   submit: function (event) {
     event.preventDefault();
-    var attrs = this.$el.serializeJSON().location;
+    var attrs = this.$el.find("form#location-form").serializeJSON().location;
+    console.log(attrs);
     var that = this;
 
     this.model.save(attrs, {
