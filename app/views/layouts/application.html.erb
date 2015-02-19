@@ -4,6 +4,7 @@
   <title>SleepingBnT</title>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <script src='http://fgnass.github.io/spin.js/spin.min.js'></script>
+  <!-- // <script src='http://fgnass.github.io/spin.js/jquery.spin.js'></script> -->
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -14,16 +15,46 @@
 
 
 
+
 </head>
+<div id="loading">asdfaf</div>
+
 <body>
 
-  <script charset="utf-8">
-  $(function(){
-    $( document ).ajaxStart(function(){ $('body').append("<div id='loading'></div>") });
-    $( document ).ajaxComplete(function(){} );
-  });
+<script charset="utf-8">
 
-  </script>
+$(function(){
+  var opts = {
+    lines: 13, // The number of lines to draw
+    length: 20, // The length of each line
+    width: 10, // The line thickness
+    radius: 30, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: '50%', // Top position relative to parent
+    left: '50%' // Left position relative to parent
+  };
+
+  var spinner = new Spinner().spin();
+  var $target = $('body').find("#loading");
+  $target.hide();
+  $( document ).ajaxStart(function(){
+    $target.append(spinner.el);
+    $( $target ).fadeIn();
+  });
+    $( document ).ajaxComplete(function(){ $( $target ).fadeOut(); })
+  })
+</script>
+
+
 
 
 <%= yield %>
