@@ -164,3 +164,21 @@ a.signinmodal, a.signupmodal {
   height: 100%;
   background:rgba(0,0,0,0.3);
 }
+
+#loading2 {
+  position:fixed;
+  z-index:999;
+  top:0;
+  left:0;
+  width:100%;
+  height: 100%;
+  background:rgba(0,0,0,0.3);
+}
+
+h3.loadmsg {
+  position: fixed;
+  font-family: "Lato", sans-serif;
+  top: calc(50% - 82px);
+  left: calc(50% - 111px);
+  color: white;
+}

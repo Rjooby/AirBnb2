@@ -52,6 +52,12 @@ Air.Views.SignIn2 = Backbone.View.extend({
 
   guestLogin: function(event){
     event.preventDefault();
+    this.closeSignInModal();
+    var spinner = new Spinner().spin();
+    var $target = $('body').find('#loading2');
+    $target.append(spinner.el);
+    $( $target ).fadeIn();
+
     var guestsNames = ["MissySwiss", "GoudaBuddha", "Cheddahead", "LotszaMozza", "TheProvoloner"]
     var guestIndex = Math.floor(Math.random() * guestsNames.length);
     var nameNum = Math.floor(Math.random() * 1000);
@@ -119,19 +125,17 @@ Air.Views.SignIn2 = Backbone.View.extend({
                   guests_num: 5,
                   start_date: "2015-03-11",
                   end_date: "2015-03-12"
+                }, {
+                  success: function () {
+                    $( $target ) .fadeOut();
+                  }
                 });
-
               }
             });
-
-
-
-
           }}
         );
         Air.users.add(that.model, {merge: true});
         Backbone.history.navigate("", {trigger: true});
-
       }
     })
     this.model = new Air.users.model();

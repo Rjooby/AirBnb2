@@ -17,7 +17,8 @@
 
 
 </head>
-<div id="loading">asdfaf</div>
+<div id="loading"></div>
+<div id="loading2"><h3 class="loadmsg">Creating sample data</h3></div>
 
 <body>
 
@@ -45,7 +46,9 @@ $(function(){
 
   var spinner = new Spinner().spin();
   var $target = $('body').find("#loading");
+  var $target2 = $('body').find("#loading2");
   $target.hide();
+  $target2.hide();
   $( document ).ajaxStart(function(){
     $target.append(spinner.el);
     $( $target ).fadeIn();
