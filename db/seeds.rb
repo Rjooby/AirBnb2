@@ -160,57 +160,135 @@
     photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
   )
 
-  # Location.create!(
-  #   name: "Great spot in Honolulu",
-  #   camptype: "wild",
-  #   owner_id: 3,
-  #   price: 77,
-  #   description: "I think there's a few beaches here. I never really checked",
-  #   coordinates: "Honolulu, Hawaii",
-  #   max_occupancy: 4,
-  #   water: true,
-  #   bathroom: false,
-  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
-  # )
-  #
-  # Location.create!(
-  #   name: "Great spot in Honolulu",
-  #   camptype: "wild",
-  #   owner_id: 3,
-  #   price: 77,
-  #   description: "I think there's a few beaches here. I never really checked",
-  #   coordinates: "Honolulu, Hawaii",
-  #   max_occupancy: 4,
-  #   water: true,
-  #   bathroom: false,
-  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
-  # )
-  #
-  # Location.create!(
-  #   name: "Great spot in Honolulu",
-  #   camptype: "wild",
-  #   owner_id: 3,
-  #   price: 77,
-  #   description: "I think there's a few beaches here. I never really checked",
-  #   coordinates: "Honolulu, Hawaii",
-  #   max_occupancy: 4,
-  #   water: true,
-  #   bathroom: false,
-  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
-  # )
-  #
-  # Location.create!(
-  #   name: "Great spot in Honolulu",
-  #   camptype: "wild",
-  #   owner_id: 3,
-  #   price: 77,
-  #   description: "I think there's a few beaches here. I never really checked",
-  #   coordinates: "Honolulu, Hawaii",
-  #   max_occupancy: 4,
-  #   water: true,
-  #   bathroom: false,
-  #   photo_url: "http://turtlebayvacationrentals.com/blog/wp-content/uploads/2013/04/may-north-shore-oahu-hawaii.jpg"
-  # )
+  Location.create!(
+    name: "Chinatown but in San Francisco!",
+    camptype: "drive",
+    owner_id: 4,
+    price: 11,
+    description: "I know this doesn't really count as a campsite, but I figured rent was cheap enough to get people interested.",
+    coordinates: "700-716 Clay St, San Francisco, CA 94111",
+    max_occupancy: 2,
+    water: true,
+    bathroom: false,
+    photo_url: "http://farm9.static.flickr.com/8571/16054832258_08a9174325.jpg"
+  )
+
+  Location.create!(
+  name: "Presidio of San Francisco",
+  camptype: "wild",
+  owner_id: 5,
+  price: 34,
+  description: "Great view of the Golden Gate Bridge, I think. There are signs here that say you can't camp here, but you can ignore them, I think.",
+  coordinates: "Presidio of San Francisco, San Francisco, CA 94129",
+  max_occupancy: 8,
+  water: true,
+  bathroom: false,
+  photo_url: "http://scotthesselink.com/wp-content/uploads/2014/06/Aerial-to-Northwest-1000x667.jpg"
+  )
+
+  Location.create!(
+  name: "Glen Canyon Park",
+  camptype: "wild",
+  owner_id: 7,
+  price: 77,
+  description: "Great camp for city explorers. Located in the heart of San Francisco, you'll have all the attractions without any of the household amenities.",
+  coordinates: "",
+  max_occupancy: 4,
+  water: true,
+  bathroom: false,
+  photo_url: "http://cdn.cstatic.net/images/gridfs/520b9e38f92ea166ef00f6de/IMG_1843-2699193631-O.jpg"
+  )
+
+  Location.create!(
+  name: "Great spot in San Pedro Valley",
+  camptype: "wild",
+  owner_id: 6,
+  price: 77,
+  description: "Sleep next to the waterfall or traverse any of our numerous hiking trails. We offer some of the best sleep any camper can only dream of.",
+  coordinates: "600 Oddstad Boulevard Pacifica, CA 94044",
+  max_occupancy: 12,
+  water: true,
+  bathroom: false,
+  photo_url: ""
+  )
+
+  Location.create!(
+  name: "Anthony Chabot State Park",
+  camptype: "wild",
+  owner_id: 5,
+  price: 77,
+  description: "Is there really a place like this right next to the city? I really don't know I'm from New Jersey but this place seems really cool.",
+  coordinates: "9999 Redwood Rd Castro Valley, CA 94552",
+  max_occupancy: 15,
+  water: true,
+  bathroom: false,
+  photo_url: "https://wheredemgirlsat.files.wordpress.com/2011/07/d17-yosemite-and-camping-in-oakland-60.jpg"
+  )
+
+  Location.create!(
+  name: "Golden Gate Canyon Park, in Colorado! Not California!",
+  camptype: "wild",
+  owner_id: 4,
+  price: 21,
+  description: "Great view of Tremount Mountain as well as access to Ely Hill and route 46. Only a short drive from downtown.",
+  coordinates: "",
+  max_occupancy: 6,
+  water: true,
+  bathroom: false,
+  photo_url: "http://2.bp.blogspot.com/-oNK56NgK36Q/VCIK-y7_z4I/AAAAAAAAOhE/ihPFeZRM3tk/s1600/raccoon_trail07.jpg"
+  )
+
+  Location.create!(
+  name: "Roosevelt National Forest",
+  camptype: "wild",
+  owner_id: 3,
+  price: 34,
+  description: "Watch out for the deer and be wary of your trail mix.",
+  coordinates: "Roosevelt National Forest, Colorado",
+  max_occupancy: 4,
+  water: true,
+  bathroom: false,
+  photo_url: "https://southwestdesertlover.files.wordpress.com/2012/10/1-82-million-acre-rio-grande-national-forest.jpg"
+  )
+
+  Location.create!(
+  name: "Arapaho National Forest",
+  camptype: "wild",
+  owner_id: 2,
+  price: 43,
+  description: "Features the state's largest natural lake. As usual, please be mindful of the surrounding wilderness and be respectful to other campers.",
+  coordinates: "Arapaho National Forest Colorado",
+  max_occupancy: 23,
+  water: false,
+  bathroom: false,
+  photo_url: "http://www.michaeldeleonphoto.com/wp-content/uploads/2012/06/20120630_0078-Edit.jpg"
+  )
+
+  Location.create!(
+  name: "Boulder Mountain Park",
+  camptype: "wild",
+  owner_id: 1,
+  price: 77,
+  description: "Great overhead views of Boulder and Colorado. Be prepared for the long hike as you see the Flatirons and the Rockies.",
+  coordinates: "Boulder Mountain Park Boulder, CO 80302",
+  max_occupancy: 32,
+  water: true,
+  bathroom: false,
+  photo_url: "http://mtnweekly.com/wp-content/uploads/2010/07/Devil-Thumb-Fire-Photo-Hardaker16.jpg"
+  )
+
+  Location.create!(
+  name: "Roxborough State Park",
+  camptype: "wild",
+  owner_id: 2,
+  price: 77,
+  description: "Look at the rocks! They're red!",
+  coordinates: "4751 East Roxborough Drive Littleton, CO 80125 United States",
+  max_occupancy: 10,
+  water: true,
+  bathroom: false,
+  photo_url: "http://www.michaeldeleonphoto.com/wp-content/uploads/2011/11/20111125_1520.jpg"
+  )
 
 
   Request.create!(

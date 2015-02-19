@@ -9,12 +9,9 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    puts "adlkfabfakubflaieufba"
-    puts params
     user = User.find_by_credentials(
                   params[:user][:username],
                   params[:user][:password])
-
     if user.nil?
       head :unprocessable_entity
     else

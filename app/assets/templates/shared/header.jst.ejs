@@ -2,14 +2,12 @@
     <nav class="header-nav group">
 
       <h2 class="header-logo"><a href="#">SleepingBnT</a></h2>
-      <ul class="header-navlist">
+      <ul class="header-navlist" style="font-family: 'Lato', sans-serif">
       <% if (Air.currentUser.isSignedIn()) {%>
         <li><a href="#/users/<%=Air.currentUser.id%>"><%= Air.currentUser.escape("username") %></a></li>
 
         <li>
-          <form>
             <a href="#" id="signout">Sign Out</a>
-          </form>
         </li>
         <li> <a class="camp" href="#/locations/new"> Add Your Camp </a> </li>
       <%} else {%>

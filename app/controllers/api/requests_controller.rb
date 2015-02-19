@@ -13,7 +13,7 @@ class Api::RequestsController < Api::ApiController
 
   def create
     @request = Request.new(request_params)
-    @request.requester_id = current_user.id
+    @request.requester_id = (params[:requester_id]) || current_user.id
     if @request.save
       render json: @request
     else
@@ -37,7 +37,7 @@ class Api::RequestsController < Api::ApiController
   private
 
   def request_params
-    params.permit(:guests_num, :start_date, :end_date, :status, :location_id)
+    params.permit(:guests_num, :start_date, :requester_id, :end_date, :status, :location_id)
   end
 
 end
