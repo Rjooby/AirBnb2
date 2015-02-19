@@ -1,3 +1,4 @@
+//= require spin.min
 //= require jquery
 //= require jquery.serializejson.min
 //= require jquery_ujs

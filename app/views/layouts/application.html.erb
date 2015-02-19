@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Air</title>
+  <title>SleepingBnT</title>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
+  <script src='http://fgnass.github.io/spin.js/spin.min.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
   <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -12,9 +13,17 @@
 
 
 
+
 </head>
 <body>
 
+  <script charset="utf-8">
+  $(function(){
+    $( document ).ajaxStart(function(){ $('body').append("<div id='loading'></div>") });
+    $( document ).ajaxComplete(function(){} );
+  });
+
+  </script>
 
 
 <%= yield %>

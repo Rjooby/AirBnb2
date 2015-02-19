@@ -220,6 +220,12 @@ ul.reviews{
 
 //locations form
 
+div#locform-container{
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
 form#location-form {
   text-align: left;
   margin: auto;
@@ -233,6 +239,11 @@ form#location-form label {
 h2.location-form {
   text-align: center;
   font-size: 24px;
+  padding: 20px 0;
+}
+
+#preview-location-photo {
+  margin: 20px 0;
 }
 
 @media (max-width: 1000px) {
