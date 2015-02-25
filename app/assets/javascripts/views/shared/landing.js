@@ -1,5 +1,7 @@
 Air.Views.Landing = Backbone.View.extend({
 
+  id: "landing-container",
+
   initialize: function () {
 
   },

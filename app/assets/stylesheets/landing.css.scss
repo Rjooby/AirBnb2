@@ -1,8 +1,31 @@
 
+#landing-container {
+  height: 100%
+}
+
+div.landing-text {
+  position: absolute;
+  top: 35%;
+  left: calc(50% - 125px);
+}
+
+div.landing-text > h3 {
+  font-size: 47px;
+  color: white;
+}
+
+
+div.landing-text > h4 {
+  font-size: 19px;
+  color: white;
+}
+
 section.landing {
   position: relative;
   display: block;
-  height: 700px;
+  height: 100%;
+  background-image: image-url("waterfall.gif");
+  background-size: cover;
 }
 
 section.sublanding {
@@ -10,8 +33,6 @@ section.sublanding {
   top: -50px;
   height: 550px;
   width: 100%;
-  background-image: image-url("waterfall.gif");
-  background-size: cover;
   z-index: -1;
   // background: #5C5C5C;
   // opacity: 0.3;
@@ -19,11 +40,12 @@ section.sublanding {
 }
 
 section.subsublanding {
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   width: 100%;
   background: black;
   opacity: 0.8;
-  top: 400px;
+  // top: 400px;
   height: 100px;
 }
 
