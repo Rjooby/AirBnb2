@@ -10,6 +10,4 @@ class Review < ActiveRecord::Base
     foreign_key: :location_id,
     primary_key: :id
 
-
-
 end

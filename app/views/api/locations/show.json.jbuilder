@@ -20,6 +20,8 @@ end
 json.reviews @location.reviews do |review|
   json.id review.id
   json.body review.body
+  json.reviewer review.reviewer.username
+  json.reviewer_avatar asset_path(review.reviewer.avatar.url)
   json.reviewer_id review.reviewer_id
   json.location_id review.location_id
   json.created_at time_ago_in_words(review.created_at)

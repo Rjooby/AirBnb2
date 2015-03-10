@@ -218,6 +218,19 @@ ul.reviews{
   border-bottom: 1px solid #ccc;
 }
 
+ul.reviews > li {
+  padding: 10px 5px;
+  // border-bottom: 1px solid #ccc;
+}
+
+img.reviewer-pic {
+  float: left;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin-right: 5px;
+}
+
 //locations form
 
 div#locform-container{

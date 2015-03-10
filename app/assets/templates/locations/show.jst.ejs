@@ -52,14 +52,17 @@
 
 
 
+    <% console.log(location.reviews()) %>
   <h3> Reviews </h3>
   <% if ((location.reviews()).length === 0) {  %>
     <h4> No reviews yet, be the first! </h4>
   <%} else {%>
   <ul class="reviews">
     <% location.reviews().each(function(review){  %>
-    <li><%=review.escape("body") %>
-      <i>- <%= review.escape("created_at") %> ago</i>
+    <li class="group">
+      <a href="#/users/<%=review.escape("reviewer_id")%>"><img class="reviewer-pic" src="<%= review.escape("reviewer_avatar") %>" /></a>
+      <%=review.escape("body") %>
+    </br><i> <%= review.escape("created_at") %> ago - <%= review.escape("reviewer")%></i>
       <% if (location.current().id == review.escape("reviewer_id")){ %>
         <button class="delete-review" data-id="<%= review.id %>">Delete</button>
       <% } %>
